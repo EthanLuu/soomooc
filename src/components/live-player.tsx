@@ -1,7 +1,12 @@
 import { useEffect, useRef } from 'react'
 import flvjs from 'flv.js'
 
-export const Player = () => {
+interface LivePlayerProps {
+  type?: string
+  url: string
+}
+
+export const LivePlayer = (props: LivePlayerProps) => {
   const flvRef = useRef<flvjs.Player>()
   const videoRef = useRef<HTMLVideoElement>(null)
   useEffect(() => {
@@ -10,14 +15,14 @@ export const Player = () => {
         type: 'flv',
         isLive: true,
         cors: true,
-        url: 'http://localhost:7001/live/demo.flv',
+        ...props,
       })
       if (videoRef.current) {
         flvRef.current.attachMediaElement(videoRef.current)
         flvRef.current.load()
       }
     }
-  }, [])
+  }, [props])
 
   return (
     <div className={'video-container'}>
