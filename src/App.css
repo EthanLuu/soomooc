@@ -1,1 +1,6 @@
-@import '~antd/dist/antd.css';
+html {
+  font-size: 62.5%;
+}
+html body #root .App {
+  min-height: 100vh;
+}
