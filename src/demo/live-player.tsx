@@ -20,6 +20,7 @@ export const LivePlayer = (props: LivePlayerProps) => {
       if (videoRef.current) {
         flvRef.current.attachMediaElement(videoRef.current)
         flvRef.current.load()
+        flvRef.current.play()
       }
     }
   }, [props])

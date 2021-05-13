@@ -1,10 +1,18 @@
 import './App.css'
-import { Demo } from 'screens/demo'
+import { ErrorBoundary } from 'components/error-boundary'
+import { FullPageErrorFallback } from 'components/lib'
+import { Header } from 'components/header'
+import { Footer } from 'components/footer'
+import { Content } from 'screens/home/content'
 
 function App() {
   return (
     <div className="App">
-      <Demo/>
+      <ErrorBoundary fallbackRender={FullPageErrorFallback}>
+        <Header />
+        <Content />
+        <Footer />
+      </ErrorBoundary>
     </div>
   )
 }

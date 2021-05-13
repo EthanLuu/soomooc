@@ -1,0 +1,153 @@
+{
+  "users": [],
+  "sideMenuList": [
+    {
+      "id": 1,
+      "title": "前端开发： HTML5 / Vue.js / Node.js",
+      "subMenu": [
+        {
+          "id": 8,
+          "title": "HTML5"
+        },
+        {
+          "id": 9,
+          "title": "Vue.js"
+        },
+        {
+          "id": 10,
+          "title": "Node.js"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "后端开发： Java / Python / Go",
+      "subMenu": [
+        {
+          "id": 11,
+          "title": "Java"
+        },
+        {
+          "id": 12,
+          "title": "Python"
+        },
+        {
+          "id": 13,
+          "title": "Go"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "移动开发： Flutter / Android / iOS",
+      "subMenu": [
+        {
+          "id": 14,
+          "title": "Flutter"
+        },
+        {
+          "id": 15,
+          "title": "Android"
+        },
+        {
+          "id": 16,
+          "title": "iOS"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "计算机基础： 算法 / 数学 / 数据库",
+      "subMenu": [
+        {
+          "id": 17,
+          "title": "算法"
+        },
+        {
+          "id": 18,
+          "title": "数学"
+        },
+        {
+          "id": 19,
+          "title": "数据库"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "前沿技术： AI / 大数据 / 数据分析",
+      "subMenu": [
+        {
+          "id": 20,
+          "title": "AI"
+        },
+        {
+          "id": 21,
+          "title": "大数据"
+        },
+        {
+          "id": 22,
+          "title": "数据分析"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "测试运维： 自动化测试 / 容器",
+      "subMenu": [
+        {
+          "id": 23,
+          "title": "自动化测试"
+        },
+        {
+          "id": 24,
+          "title": "容器"
+        },
+        {
+          "id": 25,
+          "title": "测试运维"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "更多方向： 产品设计 / UI设计 / 游戏",
+      "subMenu": [
+        {
+          "id": 26,
+          "title": "产品设计"
+        },
+        {
+          "id": 27,
+          "title": "UI设计"
+        },
+        {
+          "id": 28,
+          "title": "游戏"
+        }
+      ]
+    }
+  ],
+  "carousel": [
+    {
+      "id": 1,
+      "title": "carousel-1",
+      "url": "https://cdn.ethanloo.top/img/20210513154859.webp"
+    },
+    {
+      "id": 2,
+      "title": "carousel-2",
+      "url": "https://cdn.ethanloo.top/img/20210513154902.webp"
+    },
+    {
+      "id": 3,
+      "title": "carousel-3",
+      "url": "https://cdn.ethanloo.top/img/20210513154901.webp"
+    },
+    {
+      "id": 4,
+      "title": "carousel-4",
+      "url": "https://cdn.ethanloo.top/img/20210513154900.webp"
+    }
+  ]
+}
