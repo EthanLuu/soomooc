@@ -1,6 +1,6 @@
 import { Input } from 'antd'
 
-export const Search = () => {
+export const Search: React.FC = () => {
   const handleSearch = () => {}
   return (
     <Input.Search

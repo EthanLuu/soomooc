@@ -9,7 +9,7 @@ interface CarouselImageProp {
   url: string
 }
 
-export const Carousel = () => {
+export const Carousel: React.FC = () => {
   const client = useHttp()
   const [imageUrls, setImageUrls] = useState<CarouselImageProp[]>([])
 
@@ -17,12 +17,17 @@ export const Carousel = () => {
     client('carousel').then((urls: CarouselImageProp[]) => {
       setImageUrls(urls)
     })
-  }, [])
+  }, [client])
 
   return (
-    <CarouselContainer autoplay>
+    <CarouselContainer autoplay arrows={true}>
       {imageUrls.map((image) => (
-        <Image src={image.url} key={image.id} object-fit={'cover'} />
+        <Image
+          src={image.url}
+          key={image.id}
+          object-fit={'cover'}
+          preview={false}
+        />
       ))}
     </CarouselContainer>
   )

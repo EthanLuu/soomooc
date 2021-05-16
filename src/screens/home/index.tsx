@@ -3,7 +3,7 @@ import { Row, Col } from 'antd'
 import { Carousel } from 'screens/home/carousel'
 import { SideMenu } from './side-menu'
 
-export const HomePage = () => {
+export const HomePage: React.FC = () => {
   return (
     <>
       <Banner>

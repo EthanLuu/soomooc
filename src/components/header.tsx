@@ -5,7 +5,7 @@ import logo from 'assets/logo.svg'
 import { Search } from 'components/search'
 import { Link, useLocation } from 'react-router-dom'
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const { pathname } = useLocation()
   return (
     <Layout.Header

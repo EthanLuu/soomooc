@@ -9,7 +9,7 @@ interface MenuItemProp {
   subMenu?: MenuItemProp[]
 }
 
-export const SideMenu = () => {
+export const SideMenu: React.FC = () => {
   const { SubMenu } = Menu
   const [menuItems, setMenuItems] = useState<MenuItemProp[]>([])
   const client = useHttp()
@@ -17,7 +17,7 @@ export const SideMenu = () => {
     client('sideMenuList').then((MenuItems: MenuItemProp[]) => {
       setMenuItems(MenuItems)
     })
-  }, [])
+  }, [client])
 
   const renderMenu = (items: MenuItemProp[]) => {
     return items.map((item) => {
