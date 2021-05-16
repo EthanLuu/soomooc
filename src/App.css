@@ -4,4 +4,6 @@ html {
 }
 html body #root .App {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

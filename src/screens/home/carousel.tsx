@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Image, Carousel as AntCarousel } from 'antd'
 import { useEffect, useState } from 'react'
-import { http } from 'utils/http'
+import { useHttp } from 'utils/http'
 
 interface CarouselImageProp {
   id: number
@@ -10,17 +10,17 @@ interface CarouselImageProp {
 }
 
 export const Carousel = () => {
+  const client = useHttp()
   const [imageUrls, setImageUrls] = useState<CarouselImageProp[]>([])
 
   useEffect(() => {
-    http('carousel').then((urls: CarouselImageProp[]) => {
+    client('carousel').then((urls: CarouselImageProp[]) => {
       setImageUrls(urls)
     })
   }, [])
 
   return (
     <CarouselContainer autoplay>
-      {console.log(imageUrls)}
       {imageUrls.map((image) => (
         <Image src={image.url} key={image.id} object-fit={'cover'} />
       ))}

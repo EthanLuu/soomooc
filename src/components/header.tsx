@@ -3,8 +3,10 @@ import { Button, Layout, Menu, Row, Typography } from 'antd'
 import ButtonGroup from 'antd/lib/button/button-group'
 import logo from 'assets/logo.svg'
 import { Search } from 'components/search'
+import { Link, useLocation } from 'react-router-dom'
 
 export const Header = () => {
+  const { pathname } = useLocation()
   return (
     <Layout.Header
       style={{
@@ -14,27 +16,19 @@ export const Header = () => {
       }}
     >
       <Row style={{ height: '6.4rem', alignItems: 'center' }}>
-        <a href={'/'} style={{ width: '20rem' }}>
-          <Logo src={logo} alt="logo" />
-          <Typography.Title
-            level={3}
-            style={{
-              lineHeight: '6.4rem',
-              marginBottom: 0,
-              marginLeft: '6rem',
-            }}
-          >
-            SooMooc
-          </Typography.Title>
-        </a>
+        <Logo />
         <Menu
           theme="light"
           mode="horizontal"
-          defaultSelectedKeys={['1']}
+          selectedKeys={[pathname]}
           style={{ background: 'white', border: 'none', flex: 'auto' }}
         >
-          <Menu.Item key="1">首页</Menu.Item>
-          <Menu.Item key="2">课程</Menu.Item>
+          <Menu.Item key="/">
+            <Link to={'/'}>首页</Link>
+          </Menu.Item>
+          <Menu.Item key="/course">
+            <Link to={'/course'}>课程</Link>
+          </Menu.Item>
         </Menu>
         <Search />
         <ButtonGroup
@@ -42,17 +36,39 @@ export const Header = () => {
             alignItems: 'center',
           }}
         >
-          <Button type="link">注册</Button>
-          <Button type="link">登陆</Button>
+          <Button type="link">
+            <Link to={'/register'}>注册</Link>
+          </Button>
+          <Button type="link">
+            <Link to={'/login'}>登陆</Link>
+          </Button>
         </ButtonGroup>
       </Row>
     </Layout.Header>
   )
 }
 
-const Logo = styled.img`
+const LogoImg = styled.img`
   height: 5rem;
   width: 5rem;
   float: left;
   margin: 0.7rem 0;
 `
+
+const Logo = () => {
+  return (
+    <Link to={'/'} style={{ width: '20rem' }}>
+      <LogoImg src={logo} alt="logo" />
+      <Typography.Title
+        level={3}
+        style={{
+          lineHeight: '6.4rem',
+          marginBottom: 0,
+          marginLeft: '6rem',
+        }}
+      >
+        SooMooc
+      </Typography.Title>
+    </Link>
+  )
+}

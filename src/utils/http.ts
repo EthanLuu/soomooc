@@ -1,4 +1,5 @@
 import qs from 'qs'
+import { useCallback } from 'react'
 
 interface Config extends RequestInit {
   data?: object
@@ -34,4 +35,12 @@ export const http = async (
         return Promise.reject(data)
       }
     })
+}
+
+export const useHttp = () => {
+  return useCallback(
+    (...[endpoint, config]: Parameters<typeof http>) =>
+      http(endpoint, { ...config }),
+    []
+  )
 }

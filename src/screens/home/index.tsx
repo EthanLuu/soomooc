@@ -3,9 +3,9 @@ import { Row, Col } from 'antd'
 import { Carousel } from 'screens/home/carousel'
 import { SideMenu } from './side-menu'
 
-export const Content = () => {
+export const HomePage = () => {
   return (
-    <Container>
+    <>
       <Banner>
         <Col span={6}>
           <SideMenu />
@@ -14,15 +14,9 @@ export const Content = () => {
           <Carousel />
         </Col>
       </Banner>
-    </Container>
+    </>
   )
 }
-
-const Container = styled.div`
-  padding: 3rem 10rem;
-  margin: 0 auto;
-  min-height: calc(100vh - 134px);
-`
 
 const Banner = styled(Row)`
   border-radius: 1rem;

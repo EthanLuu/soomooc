@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Menu } from 'antd'
 import { useEffect, useState } from 'react'
-import { http } from 'utils/http'
+import { useHttp } from 'utils/http'
 
 interface MenuItemProp {
   id: number
@@ -12,8 +12,9 @@ interface MenuItemProp {
 export const SideMenu = () => {
   const { SubMenu } = Menu
   const [menuItems, setMenuItems] = useState<MenuItemProp[]>([])
+  const client = useHttp()
   useEffect(() => {
-    http('sideMenuList').then((MenuItems: MenuItemProp[]) => {
+    client('sideMenuList').then((MenuItems: MenuItemProp[]) => {
       setMenuItems(MenuItems)
     })
   }, [])
