@@ -7,8 +7,9 @@ import { Header } from 'components/header'
 import { Footer } from 'components/footer'
 import { NotFoundPage } from 'screens/404'
 import styled from '@emotion/styled'
-import { LoginPage } from 'screens/login'
-import { RegisterPage } from 'screens/register'
+import { LoginScreen } from 'screens/login'
+import { RegisterScreen } from 'screens/register'
+import { CourseListScreen } from 'screens/course-list'
 
 function App() {
   return (
@@ -19,9 +20,10 @@ function App() {
           <Main>
             <Switch>
               <Route exact path={'/'} component={HomePage} />
-              <Route exact path={'/login'} component={LoginPage} />
-              <Route exact path={'/register'} component={RegisterPage} />
-              <Route path={"*"} component={NotFoundPage} />
+              <Route exact path={'/course'} component={CourseListScreen} />
+              <Route exact path={'/login'} component={LoginScreen} />
+              <Route exact path={'/register'} component={RegisterScreen} />
+              <Route path={'*'} component={NotFoundPage} />
             </Switch>
           </Main>
           <Footer />

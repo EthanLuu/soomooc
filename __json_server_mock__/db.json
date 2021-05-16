@@ -149,5 +149,31 @@
       "title": "carousel-4",
       "url": "https://cdn.ethanloo.top/img/20210513154900.webp"
     }
+  ],
+  "course": [
+    {
+      "id": 1,
+      "title": "2小时极速入门 TypeScript",
+      "cover": "//img3.mukewang.com/607fc1a4097d454805400304.png",
+      "direction": "前端",
+      "type": "TypeScript",
+      "numberOfStudents": 2569
+    },
+    {
+      "id": 2,
+      "title": "vue3.0实现todolist",
+      "cover": "//img4.mukewang.com/600ebd8b08a2013605400304.jpg",
+      "direction": "前端",
+      "type": "Vue",
+      "numberOfStudents": 4873
+    },
+    {
+      "id": 3,
+      "title": "当React遇上TypeScript开发Antd组件",
+      "cover": "//img2.mukewang.com/5fe4430e0001057c05400304.jpg",
+      "direction": "前端",
+      "type": "React",
+      "numberOfStudents": 5699
+    }
   ]
 }
