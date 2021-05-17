@@ -132,22 +132,26 @@
     {
       "id": 1,
       "title": "carousel-1",
-      "url": "https://cdn.ethanloo.top/img/20210513154859.webp"
+      "url": "//img1.mukewang.com/60a1d21000017b6f17920764.jpg",
+      "courseId": 1
     },
     {
       "id": 2,
       "title": "carousel-2",
-      "url": "https://cdn.ethanloo.top/img/20210513154902.webp"
+      "url": "//img.mukewang.com/60a1d78100010e4d17920764.jpg",
+      "courseId": 2
     },
     {
       "id": 3,
       "title": "carousel-3",
-      "url": "https://cdn.ethanloo.top/img/20210513154901.webp"
+      "url": "//img4.mukewang.com/609c8d9400019d4217920764.jpg",
+      "courseId": 3
     },
     {
       "id": 4,
       "title": "carousel-4",
-      "url": "https://cdn.ethanloo.top/img/20210513154900.webp"
+      "url": "//img3.mukewang.com/609e0faa00011f5817920764.jpg",
+      "courseId": 4
     }
   ],
   "course": [

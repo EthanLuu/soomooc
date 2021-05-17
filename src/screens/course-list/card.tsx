@@ -14,10 +14,7 @@ export const CourseCard: React.FC<{ course: Course }> = ({ course }) => {
       }}
       cover={<Cover src={cover}></Cover>}
     >
-      <Card.Meta
-        title={title}
-        // description={`${direction} | ${type} | ${numberOfStudents}人报名`}
-      />
+      <Card.Meta title={title} />
       <Description>{`${direction} | ${type} | ${numberOfStudents}人报名`}</Description>
     </Card>
   )

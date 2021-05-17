@@ -1,6 +1,5 @@
-import styled from '@emotion/styled'
 import { Col, Row } from 'antd'
-
+import { Link } from 'react-router-dom'
 import { Course } from 'type/course'
 import { CourseCard } from './card'
 
@@ -14,22 +13,10 @@ export const CourseList: React.FC<ListProps> = ({ courses }) => {
       <Row>
         {courses?.map((course) => {
           return (
-            <Col span={6}>
-              <CourseCard key={course.id} course={course}></CourseCard>
-            </Col>
-          )
-        })}
-        {courses?.map((course) => {
-          return (
-            <Col span={6}>
-              <CourseCard key={course.id} course={course}></CourseCard>
-            </Col>
-          )
-        })}
-        {courses?.map((course) => {
-          return (
-            <Col span={6}>
-              <CourseCard key={course.id} course={course}></CourseCard>
+            <Col span={6} key={course.id}>
+              <Link to={`course/detail/${course.id}`}>
+                <CourseCard course={course}></CourseCard>
+              </Link>
             </Col>
           )
         })}

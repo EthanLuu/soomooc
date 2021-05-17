@@ -1,12 +1,14 @@
 import styled from '@emotion/styled'
 import { Image, Carousel as AntCarousel } from 'antd'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useHttp } from 'utils/http'
 
 interface CarouselImageProp {
   id: number
   title: string
   url: string
+  courseId: number
 }
 
 export const Carousel: React.FC = () => {
@@ -20,14 +22,15 @@ export const Carousel: React.FC = () => {
   }, [client])
 
   return (
-    <CarouselContainer autoplay arrows={true}>
+    <CarouselContainer autoplay arrows={true} effect={'fade'}>
       {imageUrls.map((image) => (
-        <Image
-          src={image.url}
-          key={image.id}
-          object-fit={'cover'}
-          preview={false}
-        />
+        <Link to={`/course/detail/${image.courseId}`} key={image.id}>
+          <Image
+            src={image.url}
+            object-fit={'cover'}
+            preview={false}
+          />
+        </Link>
       ))}
     </CarouselContainer>
   )

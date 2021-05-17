@@ -9,7 +9,6 @@ export const CourseListScreen: React.FC = () => {
   const [courses, setCourses] = useState<Course[]>([])
   useEffect(() => {
     client('course').then((courses) => {
-      console.log(courses)
       setCourses(courses)
     })
   }, [client])

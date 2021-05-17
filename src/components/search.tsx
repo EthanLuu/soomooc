@@ -5,7 +5,7 @@ export const Search: React.FC = () => {
   return (
     <Input.Search
       placeholder={"搜索课程"}
-      style={{ width: 200, paddingRight: '3rem' }}
+      style={{ width: 250, paddingRight: '3rem' }}
       onSearch={handleSearch}
     />
   )
