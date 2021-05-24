@@ -16,10 +16,10 @@ export const Header: React.FC = () => {
         selectedKeys={[pathname]}
         style={{ flex: 1 }}
       >
-        <Menu.Item key="/">
+        <Menu.Item key={'/'}>
           <Link to={'/'}>首页</Link>
         </Menu.Item>
-        <Menu.Item key="/course">
+        <Menu.Item key={'/course'}>
           <Link to={'/course'}>课程列表</Link>
         </Menu.Item>
       </Menu>

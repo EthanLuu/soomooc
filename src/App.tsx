@@ -10,6 +10,7 @@ import styled from '@emotion/styled'
 import { LoginScreen } from 'screens/login'
 import { RegisterScreen } from 'screens/register'
 import { CourseListScreen } from 'screens/course-list'
+import { CourseDetailScreen } from 'screens/course'
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
             <Switch>
               <Route exact path={'/'} component={HomePage} />
               <Route exact path={'/course'} component={CourseListScreen} />
+              <Route
+                exact
+                path={'/course/detail/:courseId'}
+                component={CourseDetailScreen}
+              />
               <Route exact path={'/login'} component={LoginScreen} />
               <Route exact path={'/register'} component={RegisterScreen} />
               <Route path={'*'} component={NotFoundPage} />
@@ -38,4 +44,6 @@ export default App
 const Main = styled.div`
   padding: 3rem 10rem;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 `

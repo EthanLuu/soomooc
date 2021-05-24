@@ -25,11 +25,7 @@ export const Carousel: React.FC = () => {
     <CarouselContainer autoplay arrows={true} effect={'fade'}>
       {imageUrls.map((image) => (
         <Link to={`/course/detail/${image.courseId}`} key={image.id}>
-          <Image
-            src={image.url}
-            object-fit={'cover'}
-            preview={false}
-          />
+          <Image src={image.url} object-fit={'cover'} preview={false} />
         </Link>
       ))}
     </CarouselContainer>

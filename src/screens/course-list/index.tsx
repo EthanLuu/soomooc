@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react'
-import { Course } from 'type/course'
+import { CourseProps } from 'type/course'
 import { useHttp } from 'utils/http'
 import { CourseList } from './list'
 import { Divider, Row } from 'antd'
 
 export const CourseListScreen: React.FC = () => {
   const client = useHttp()
-  const [courses, setCourses] = useState<Course[]>([])
+  const [courses, setCourses] = useState<CourseProps[]>([])
   useEffect(() => {
     client('course').then((courses) => {
       setCourses(courses)
     })
   }, [client])
+
   return (
     <>
-      <Row style={{ justifyContent: 'center' }}>
+      <Row justify={'center'}>
         <h1>全部课程</h1>
       </Row>
       <Divider />

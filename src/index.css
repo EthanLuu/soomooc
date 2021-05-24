@@ -7,3 +7,21 @@ body {
   overflow-x: hidden;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}

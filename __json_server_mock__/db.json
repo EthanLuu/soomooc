@@ -178,6 +178,42 @@
       "direction": "前端",
       "type": "React",
       "numberOfStudents": 5699
+    },
+    {
+      "id": 4,
+      "title": "趣味 C++ 入门",
+      "cover": "//img2.mukewang.com/606c41a60914530f05400304.png",
+      "direction": "后端",
+      "type": "C++",
+      "numberOfStudents": 2285
+    },
+    {
+      "id": 5,
+      "title": "Python3 进阶教程 2020全新版",
+      "cover": "//img2.mukewang.com/5fe4430f0001cbe605400304.jpg",
+      "direction": "后端",
+      "type": "Python",
+      "numberOfStudents": 20341
+    },
+    {
+      "id": 6,
+      "title": "Javascript实现二叉树算法",
+      "cover": "//img2.mukewang.com/5fe442fd00018a1405400304.jpg",
+      "direction": "计算机基础",
+      "type": "JavaScript",
+      "numberOfStudents": 44848
+    }
+  ],
+  "detail": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "info": "让你通过2小时，实现 TypeScript 的从入门到精通"
+    },
+    {
+      "id": 2,
+      "courseId": 2,
+      "info": "Vue 入门第一步：TodoList"
     }
   ]
 }
