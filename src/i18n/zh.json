@@ -1,0 +1,9 @@
+{
+  "header": {
+    "home": "首页",
+    "course_list": "课程列表",
+    "search_panel": "搜索课程",
+    "register": "注册",
+    "login": "登陆"
+  }
+}
