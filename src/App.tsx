@@ -7,10 +7,9 @@ import { Header } from 'components/header'
 import { Footer } from 'components/footer'
 import { NotFoundPage } from 'screens/404'
 import styled from '@emotion/styled'
-import { LoginScreen } from 'screens/login'
-import { RegisterScreen } from 'screens/register'
 import { CourseListScreen } from 'screens/course-list'
 import { CourseDetailScreen } from 'screens/course'
+import { UnauthenticatedApp } from 'screens/unauthenticated-app'
 
 function App() {
   return (
@@ -27,8 +26,8 @@ function App() {
                 path={'/course/detail/:courseId'}
                 component={CourseDetailScreen}
               />
-              <Route exact path={'/login'} component={LoginScreen} />
-              <Route exact path={'/register'} component={RegisterScreen} />
+              <Route exact path={'/login'} component={UnauthenticatedApp} />
+              <Route exact path={'/register'} component={UnauthenticatedApp} />
               <Route path={'*'} component={NotFoundPage} />
             </Switch>
           </Main>
@@ -46,4 +45,5 @@ const Main = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  background-color: #f0f2f5;
 `

@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 import { Spin, Typography } from 'antd'
+import { ReactComponent as Logo } from 'assets/logo.svg'
+import Icon from '@ant-design/icons/lib/components/Icon'
 
 const FullPage = styled.div`
   flex: 1;
@@ -20,4 +22,8 @@ export const FullPageLoading = () => {
       <Spin size={'large'} />
     </FullPage>
   )
+}
+
+export const LogoSvg = ({ size }: { size?: string }) => {
+  return <Icon component={Logo} style={{ fontSize: size }} />
 }

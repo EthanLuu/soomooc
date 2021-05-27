@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router'
 import { CourseDetailProps, CourseProps } from 'type/course'
 import { useHttp } from 'utils/http'
+// import { LiveDemo } from 'demo'
 
 interface MatchParams {
   courseId: string
@@ -35,6 +36,7 @@ export const CourseDetailScreen: React.FC<RouteComponentProps<MatchParams>> = (
     <>
       <CourseBanner courseDetail={courseDetail} />
       <Row justify={'center'}>{`${courseDetail?.info}`}</Row>
+      {/* <LiveDemo id={courseId} /> */}
     </>
   )
 }
