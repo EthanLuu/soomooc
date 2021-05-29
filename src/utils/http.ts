@@ -3,7 +3,6 @@ import { useCallback } from 'react'
 
 interface Config extends RequestInit {
   data?: object
-  token?: string
 }
 
 const apiUrl = process.env.REACT_APP_API_URL

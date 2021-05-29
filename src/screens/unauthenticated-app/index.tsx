@@ -7,10 +7,10 @@ import { LogoSvg } from 'components/lib'
 
 export const UnauthenticatedApp = () => {
   const url = useLocation()
-  const showError = (e: Error) => {
+  const showError = (error: string) => {
     notification.open({
-      key: e.message,
-      message: e.message,
+      key: error,
+      message: error,
     })
   }
   return (
@@ -18,7 +18,7 @@ export const UnauthenticatedApp = () => {
       <Title>
         <p>
           <Typography.Text strong>SooMooc</Typography.Text>
-          <LogoSvg size={'5rem'} />
+          <LogoSvg size={'7rem'} />
         </p>
         <p>你的不二之选</p>
       </Title>
@@ -40,7 +40,8 @@ export const Container = styled.div`
   flex: 1;
 `
 const Title = styled.div`
-  font-size: 4rem;
+  user-select: none;
+  font-size: 5rem;
   margin-right: 15%;
   p {
     white-space: nowrap;

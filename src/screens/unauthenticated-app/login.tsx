@@ -1,26 +1,24 @@
 import { useAuth } from 'context/auth-context'
 import { Button, Form, Input } from 'antd'
-import { useAsync } from 'utils/use-async'
 import { useJumpTo } from 'utils'
+import useRequest from '@ahooksjs/use-request'
 
 export const LoginScreen = ({
   onError,
 }: {
-  onError: (error: Error) => void
+  onError: (error: string) => void
 }) => {
   const { login } = useAuth()
-  const { run, isLoading } = useAsync(undefined, { throwOnError: true })
+  const { run, loading } = useRequest(login, {
+    manual: true,
+    throwOnError: true,
+  })
   const backHome = useJumpTo('/')
 
-  const handleSubmit = async (values: {
-    username: string
-    password: string
-  }) => {
-    await run(login(values))
+  const handleSubmit = (values: { username: string; password: string }) => {
+    run(values)
       .then(() => backHome())
-      .catch((e) => {
-        onError(new Error(e))
-      })
+      .catch(onError)
   }
 
   return (
@@ -39,7 +37,7 @@ export const LoginScreen = ({
       </Form.Item>
       <Form.Item>
         <Button
-          loading={isLoading}
+          loading={loading}
           style={{ width: '100%' }}
           htmlType={'submit'}
           type={'primary'}

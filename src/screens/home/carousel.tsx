@@ -22,10 +22,14 @@ export const Carousel: React.FC = () => {
   }, [client])
 
   return (
-    <CarouselContainer autoplay arrows={true} effect={'fade'}>
+    <CarouselContainer autoplay effect={'fade'}>
       {imageUrls.map((image) => (
         <Link to={`/course/detail/${image.courseId}`} key={image.id}>
-          <Image src={image.url} object-fit={'cover'} preview={false} />
+          <Image
+            style={{ objectFit: 'cover', height: '40rem' }}
+            src={image.url}
+            preview={false}
+          />
         </Link>
       ))}
     </CarouselContainer>

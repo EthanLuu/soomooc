@@ -1,19 +1,21 @@
 import { useAuth } from 'context/auth-context'
 import { Button, Form, Input } from 'antd'
-import { useAsync } from 'utils/use-async'
 import { useJumpTo } from 'utils'
+import { useRequest } from 'ahooks'
 
 export const RegisterScreen = ({
   onError,
 }: {
-  onError: (error: Error) => void
+  onError: (error: string) => void
 }) => {
   const { register } = useAuth()
-  const { run, isLoading } = useAsync(undefined, { throwOnError: true })
+  const { run, loading } = useRequest(register, {
+    manual: true,
+    throwOnError: true,
+  })
   const backHome = useJumpTo('/')
 
-  // HTMLFormElement extends Element
-  const handleSubmit = async ({
+  const handleSubmit = ({
     cpassword,
     ...values
   }: {
@@ -22,14 +24,13 @@ export const RegisterScreen = ({
     cpassword: string
   }) => {
     if (cpassword !== values.password) {
-      onError(new Error('请确认两次输入的密码相同'))
+      onError('请确认两次输入的密码相同')
       return
     }
-    try {
-      await run(register(values)).then(() => backHome())
-    } catch (e) {
-      onError(new Error(e))
-    }
+
+    run(values)
+      .then(() => backHome())
+      .catch(onError)
   }
 
   return (
@@ -55,7 +56,7 @@ export const RegisterScreen = ({
       <Form.Item>
         <Button
           style={{ width: '100%' }}
-          loading={isLoading}
+          loading={loading}
           htmlType={'submit'}
           type={'primary'}
         >

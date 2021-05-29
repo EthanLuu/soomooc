@@ -1,10 +1,9 @@
 import { FullPageLoading, FullPageErrorFallback } from 'components/lib'
-import React, { ReactNode } from 'react'
+import React, { createContext, ReactNode } from 'react'
 import * as auth from 'auth-provider'
 import { User } from 'type/user'
-import { useMount } from 'utils'
-import { useAsync } from 'utils/use-async'
 import { http } from 'utils/http'
+import { useRequest } from 'ahooks'
 
 interface AuthForm {
   username: string
@@ -15,16 +14,16 @@ const bootstrapUser = async () => {
   let user = null
   const token = auth.getToken()
   if (token) {
-    const data = await http(`users`, { token })
+    const data = await http(`users`, { data: { token } })
     user = data?.[0]
   }
   return user
 }
 
 const AuthContext =
-  React.createContext<
+  createContext<
     | {
-        user: User | null
+        user: User | null | undefined
         register: (form: AuthForm) => Promise<void>
         login: (form: AuthForm) => Promise<void>
         logout: () => Promise<void>
@@ -37,26 +36,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const {
     data: user,
     error,
-    isLoading,
-    isIdle,
-    isError,
-    run,
-    setData: setUser,
-  } = useAsync<User | null>()
+    loading,
+    mutate,
+  } = useRequest<User | null>(bootstrapUser, { throwOnError: true })
 
-  const login = (form: AuthForm) => auth.login(form).then(setUser)
-  const register = (form: AuthForm) => auth.register(form).then(setUser)
-  const logout = () => auth.logout().then(() => setUser(null))
+  const login = (form: AuthForm) => auth.login(form).then(mutate)
+  const register = (form: AuthForm) => auth.register(form).then(mutate)
+  const logout = () => auth.logout().then(() => mutate(null))
 
-  useMount(() => {
-    run(bootstrapUser())
-  })
-
-  if (isIdle || isLoading) {
+  if (loading) {
     return <FullPageLoading />
   }
 
-  if (isError) {
+  if (error) {
     return <FullPageErrorFallback error={error} />
   }
 
