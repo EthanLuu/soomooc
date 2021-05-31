@@ -8,9 +8,7 @@ export const CourseListScreen: React.FC = () => {
   const client = useHttp()
   const [courses, setCourses] = useState<CourseProps[]>([])
   useEffect(() => {
-    client('course').then((courses) => {
-      setCourses(courses)
-    })
+    client('course/courses').then(setCourses)
   }, [client])
 
   return (

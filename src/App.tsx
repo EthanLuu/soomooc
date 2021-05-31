@@ -1,6 +1,4 @@
 import './App.css'
-import { ErrorBoundary } from 'components/error-boundary'
-import { FullPageErrorFallback } from 'components/lib'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { HomePage } from 'screens/home'
 import { Header } from 'components/header'
@@ -14,26 +12,24 @@ import { UnauthenticatedApp } from 'screens/unauthenticated-app'
 function App() {
   return (
     <div className="App">
-      <ErrorBoundary fallbackRender={FullPageErrorFallback}>
-        <Router>
-          <Header />
-          <Main>
-            <Switch>
-              <Route exact path={'/'} component={HomePage} />
-              <Route exact path={'/course'} component={CourseListScreen} />
-              <Route
-                exact
-                path={'/course/detail/:courseId'}
-                component={CourseDetailScreen}
-              />
-              <Route exact path={'/login'} component={UnauthenticatedApp} />
-              <Route exact path={'/register'} component={UnauthenticatedApp} />
-              <Route path={'*'} component={NotFoundPage} />
-            </Switch>
-          </Main>
-          <Footer />
-        </Router>
-      </ErrorBoundary>
+      <Router>
+        <Header />
+        <Main>
+          <Switch>
+            <Route exact path={'/'} component={HomePage} />
+            <Route exact path={'/course'} component={CourseListScreen} />
+            <Route
+              exact
+              path={'/course/:courseId'}
+              component={CourseDetailScreen}
+            />
+            <Route exact path={'/login'} component={UnauthenticatedApp} />
+            <Route exact path={'/register'} component={UnauthenticatedApp} />
+            <Route path={'*'} component={NotFoundPage} />
+          </Switch>
+        </Main>
+        <Footer />
+      </Router>
     </div>
   )
 }

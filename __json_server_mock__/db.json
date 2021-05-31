@@ -234,17 +234,5 @@
       "type": "JavaScript",
       "numberOfStudents": 44848
     }
-  ],
-  "detail": [
-    {
-      "id": 1,
-      "courseId": 1,
-      "info": "让你通过2小时，实现 TypeScript 的从入门到精通"
-    },
-    {
-      "id": 2,
-      "courseId": 2,
-      "info": "Vue 入门第一步：TodoList"
-    }
   ]
 }

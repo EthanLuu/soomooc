@@ -4,9 +4,9 @@ import { CourseProps } from 'type/course'
 import { Link } from 'react-router-dom'
 
 export const CourseCard: React.FC<{ course: CourseProps }> = ({ course }) => {
-  const { id, title, cover, direction, type, numberOfStudents } = course
+  const { _id, title, cover, direction, type, numberOfStudents } = course
   return (
-    <Link to={`course/detail/${id}`}>
+    <Link to={`course/${_id}`}>
       <Card
         hoverable
         style={{

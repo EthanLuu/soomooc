@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react'
 import { useHttp } from 'utils/http'
 
 interface MenuItemProp {
-  id: number
-  title: string
-  subMenu?: MenuItemProp[]
+  _id: number
+  direction: string
+  types: string[]
 }
 
 export const SideMenu: React.FC = () => {
@@ -14,22 +14,20 @@ export const SideMenu: React.FC = () => {
   const [menuItems, setMenuItems] = useState<MenuItemProp[]>([])
   const client = useHttp()
   useEffect(() => {
-    client('sideMenuList').then((MenuItems: MenuItemProp[]) => {
+    client('menu/menus').then((MenuItems: MenuItemProp[]) => {
       setMenuItems(MenuItems)
     })
   }, [client])
 
   const renderMenu = (items: MenuItemProp[]) => {
     return items.map((item) => {
-      if (item.subMenu) {
-        return (
-          <SubMenu key={item.id} title={item.title} style={{ flex: 'auto' }}>
-            {renderMenu(item.subMenu)}
-          </SubMenu>
-        )
-      } else {
-        return <Menu.Item key={item.id}>{item.title}</Menu.Item>
-      }
+      return (
+        <SubMenu key={item._id} title={`${item.direction}：${item.types.join(' / ')}`} style={{ flex: 'auto' }}>
+          {item.types.map((type) => (
+            <Menu.Item key={type}>{type}</Menu.Item>
+          ))}
+        </SubMenu>
+      )
     })
   }
 

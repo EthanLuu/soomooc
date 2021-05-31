@@ -5,12 +5,16 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import './i18n/config'
 import { AppProviders } from 'context'
+import { ErrorBoundary } from 'components/error-boundary'
+import { FullPageErrorFallback } from 'components/lib'
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppProviders>
-      <App />
-    </AppProviders>
+    <ErrorBoundary fallbackRender={FullPageErrorFallback}>
+      <AppProviders>
+        <App />
+      </AppProviders>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 )

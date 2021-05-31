@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
-import { CourseDetailProps } from 'type/course'
+import { CourseProps } from 'type/course'
 
 export const CourseBanner = ({
   courseDetail,
 }: {
-  courseDetail: CourseDetailProps
+  courseDetail: CourseProps
 }) => {
   return (
     <TitleContainer style={{ backgroundImage: `url(${courseDetail.cover})` }}>

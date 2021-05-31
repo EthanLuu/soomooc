@@ -3,7 +3,7 @@ import { Row } from 'antd'
 import { FullPageLoading } from 'components/lib'
 import { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router'
-import { CourseDetailProps, CourseProps } from 'type/course'
+import { CourseProps } from 'type/course'
 import { useHttp } from 'utils/http'
 // import { LiveDemo } from 'demo'
 
@@ -17,18 +17,10 @@ export const CourseDetailScreen: React.FC<RouteComponentProps<MatchParams>> = (
   const courseId = props.match.params.courseId
   const client = useHttp()
 
-  const [courseDetail, setCourseDetail] =
-    useState<CourseDetailProps | null>(null)
+  const [courseDetail, setCourseDetail] = useState<CourseProps | null>(null)
 
   useEffect(() => {
-    const fetchData = async () => {
-      const course: CourseProps = await client(`course/${courseId}`)
-      const detail: CourseDetailProps[] = await client(
-        `course/${courseId}/detail`
-      )
-      setCourseDetail({ ...detail?.[0], ...course })
-    }
-    fetchData()
+    client(`course/${courseId}`).then(setCourseDetail)
   }, [client, courseId])
   return !courseDetail ? (
     <FullPageLoading />

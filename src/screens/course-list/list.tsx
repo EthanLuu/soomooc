@@ -12,7 +12,7 @@ export const CourseList: React.FC<ListProps> = ({ courses }) => {
       <Row gutter={24}>
         {courses?.map((course) => {
           return (
-            <Col span={6} key={course.id}>
+            <Col span={6} key={course._id}>
               <CourseCard course={course}></CourseCard>
             </Col>
           )
