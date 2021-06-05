@@ -8,6 +8,7 @@ import styled from '@emotion/styled'
 import { CourseListScreen } from 'screens/course-list'
 import { CourseDetailScreen } from 'screens/course'
 import { UnauthenticatedApp } from 'screens/unauthenticated-app'
+import { LiveRoomScreen } from 'screens/live-room'
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
           <Switch>
             <Route exact path={'/'} component={HomePage} />
             <Route exact path={'/course'} component={CourseListScreen} />
+            <Route
+              exact
+              path={'/course/live/:courseId'}
+              component={LiveRoomScreen}
+            />
             <Route
               exact
               path={'/course/:courseId'}

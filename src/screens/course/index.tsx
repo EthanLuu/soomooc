@@ -1,11 +1,11 @@
 import { CourseBanner } from './banner'
-import { Row } from 'antd'
+import { Button, Row } from 'antd'
 import { FullPageLoading } from 'components/lib'
 import { useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router'
 import { CourseProps } from 'type/course'
 import { useHttp } from 'utils/http'
-// import { LiveDemo } from 'demo'
+import { Link } from 'react-router-dom'
 
 interface MatchParams {
   courseId: string
@@ -27,8 +27,20 @@ export const CourseDetailScreen: React.FC<RouteComponentProps<MatchParams>> = (
   ) : (
     <>
       <CourseBanner courseDetail={courseDetail} />
-      <Row justify={'center'}>{`${courseDetail?.info}`}</Row>
-      {/* <LiveDemo id={courseId} /> */}
+      <Row
+        justify={'center'}
+        align={'middle'}
+        style={{ flex: 'auto', flexDirection: 'column' }}
+      >
+        <div>
+          <h2>{`${courseDetail?.info}`}</h2>
+        </div>
+        <div>
+          <Link to={`/course/live/${courseId}`}>
+            <Button>进入直播间</Button>
+          </Link>
+        </div>
+      </Row>
     </>
   )
 }
