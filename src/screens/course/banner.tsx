@@ -4,10 +4,10 @@ import { CourseProps } from 'type/course'
 export const CourseBanner = ({
   courseDetail,
 }: {
-  courseDetail: CourseProps
+  courseDetail: CourseProps | undefined
 }) => {
   return (
-    <TitleContainer style={{ backgroundImage: `url(${courseDetail.cover})` }}>
+    <Container style={{ backgroundImage: `url(${courseDetail?.cover})` }}>
       <Title>
         <div
           style={{ fontSize: '3.5rem', fontWeight: 600 }}
@@ -16,16 +16,17 @@ export const CourseBanner = ({
           style={{ fontSize: '1.5rem' }}
         >{`${courseDetail?.direction} | ${courseDetail?.type} | ${courseDetail?.numberOfStudents} 人正在学习`}</div>
       </Title>
-    </TitleContainer>
+    </Container>
   )
 }
 
-const TitleContainer = styled.div`
+const Container = styled.div`
   display: flex;
   height: 20rem;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 1rem;
 `
 
 const Title = styled.div`
