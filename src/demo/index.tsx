@@ -8,6 +8,7 @@ export const LiveDemo = ({ id }: { id: string }) => {
       <LivePlayer
         url={`http://121.43.155.202:8080/live/${id}.flv`}
         type="flv"
+        isLive={true}
       />
     </PlayerContainer>
   )

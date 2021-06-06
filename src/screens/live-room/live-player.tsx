@@ -4,6 +4,7 @@ import flvjs from 'flv.js'
 interface LivePlayerProps {
   type?: string
   url: string
+  isLive: boolean
 }
 
 export const LivePlayer = (props: LivePlayerProps) => {
@@ -13,15 +14,13 @@ export const LivePlayer = (props: LivePlayerProps) => {
     if (flvjs.isSupported()) {
       flvRef.current = flvjs.createPlayer({
         type: 'flv',
-        isLive: true,
         cors: true,
         ...props,
       })
       flvRef.current.on('error', (error) => {
         flvRef.current?.destroy()
-        console.log(error)
       })
-      if (videoRef.current) {
+      if (videoRef.current && props.isLive) {
         flvRef.current.attachMediaElement(videoRef.current)
         flvRef.current.load()
         const playPromise = flvRef.current.play()

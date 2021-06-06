@@ -25,7 +25,7 @@ export const CourseContent = ({
         style={{
           width: '25%',
           backgroundColor: '#fff',
-          padding: '2rem 1rem',
+          padding: '1rem 1rem',
           borderRadius: 10,
           boxShadow: '0 13px 15px rgba(0, 0, 0, 0.11)',
         }}
@@ -42,7 +42,6 @@ export const CourseContent = ({
       <div
         style={{
           flex: 2,
-          textAlign: 'center',
           display: 'flex',
         }}
       >
