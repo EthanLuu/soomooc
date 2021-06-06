@@ -6,6 +6,7 @@ import { RouteComponentProps } from 'react-router'
 import { CourseProps } from 'type/course'
 import { useHttp } from 'utils/http'
 import { Link } from 'react-router-dom'
+import { BreadCrumb } from 'components/breadcrumb'
 
 interface MatchParams {
   courseId: string
@@ -26,6 +27,7 @@ export const CourseDetailScreen: React.FC<RouteComponentProps<MatchParams>> = (
     <FullPageLoading />
   ) : (
     <>
+      <BreadCrumb />
       <CourseBanner courseDetail={courseDetail} />
       <Row
         justify={'center'}

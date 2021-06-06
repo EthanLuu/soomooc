@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { BreadCrumb } from 'components/breadcrumb'
 import { RouteComponentProps } from 'react-router-dom'
 import { ChatRoom } from './chat-room'
 import { LivePlayer } from './live-player'
@@ -9,6 +10,7 @@ export const LiveRoomScreen: React.FC<
   const courseId = props.match.params.courseId
   return (
     <>
+      <BreadCrumb />
       <h1>{`直播间`}</h1>
       <Container>
         <LivePlayer
