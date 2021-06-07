@@ -1,14 +1,9 @@
 import './App.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { HomePage } from 'screens/home'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { Header } from 'components/header'
 import { Footer } from 'components/footer'
-import { NotFoundPage } from 'screens/404'
 import styled from '@emotion/styled'
-import { CourseListScreen } from 'screens/course-list'
-import { CourseDetailScreen } from 'screens/course'
-import { UnauthenticatedApp } from 'screens/unauthenticated-app'
-import { LiveRoomScreen } from 'screens/live-room'
+import { Routes } from 'routes'
 
 function App() {
   return (
@@ -17,21 +12,7 @@ function App() {
         <Header />
         <Main>
           <Switch>
-            <Route exact path={'/'} component={HomePage} />
-            <Route exact path={'/course'} component={CourseListScreen} />
-            <Route
-              exact
-              path={'/course/live/:courseId'}
-              component={LiveRoomScreen}
-            />
-            <Route
-              exact
-              path={'/course/:courseId'}
-              component={CourseDetailScreen}
-            />
-            <Route exact path={'/login'} component={UnauthenticatedApp} />
-            <Route exact path={'/register'} component={UnauthenticatedApp} />
-            <Route path={'*'} component={NotFoundPage} />
+            <Routes />
           </Switch>
         </Main>
         <Footer />

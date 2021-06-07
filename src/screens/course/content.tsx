@@ -14,13 +14,34 @@ export const CourseContent = ({
   return (
     <Row
       justify={'center'}
-      align={'top'}
+      align={'middle'}
       style={{
         flex: 1,
         flexDirection: 'row',
         padding: '2rem 0',
       }}
     >
+      <div
+        style={{
+          flex: 2,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Phone />
+        <div
+          style={{
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '3rem',
+          }}
+        >
+          {`${courseDetail?.info}`}
+        </div>
+      </div>
       <div
         style={{
           width: '25%',
@@ -38,26 +59,6 @@ export const CourseContent = ({
             <TeacherCard />
           </TabPane>
         </Tabs>
-      </div>
-      <div
-        style={{
-          flex: 2,
-          display: 'flex',
-        }}
-      >
-        <div
-          style={{
-            flex: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '3rem',
-          }}
-        >
-          {`${courseDetail?.info}`}
-        </div>
-
-        <Phone />
       </div>
     </Row>
   )

@@ -1,17 +1,50 @@
 import styled from '@emotion/styled'
+import { Rate } from 'antd'
+import { useAuth } from 'context/auth-context'
+import { useCoursesContext } from 'context/course-context'
+import { useState } from 'react'
 import { CourseProps } from 'type/course'
+import { useHttp } from 'utils/http'
+import { useMyCourses } from 'utils/user'
 
 export const CourseBanner = ({
   courseDetail,
 }: {
   courseDetail: CourseProps | undefined
 }) => {
+  const { courses, subscribe, unsubscribe } = useCoursesContext()
+  const [star, setStar] = useState(
+    courses?.some((course) => course._id === courseDetail?._id) || false
+  )
+
+  const toggleStar = () => {
+    if (!courseDetail) return
+    if (star) {
+      unsubscribe(courseDetail).then(() => setStar(!star))
+    } else {
+      subscribe(courseDetail).then(() => setStar(!star))
+    }
+  }
+
   return (
     <Container style={{ backgroundImage: `url(${courseDetail?.cover})` }}>
       <Title>
         <div
-          style={{ fontSize: '3.5rem', fontWeight: 600 }}
-        >{`${courseDetail?.title}`}</div>
+          style={{
+            fontSize: '3.5rem',
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Rate
+            defaultValue={star ? 1 : 0}
+            count={1}
+            style={{ fontSize: '3.5rem', marginRight: '2rem', lineHeight: 1 }}
+            onChange={toggleStar}
+          />
+          {`${courseDetail?.title}`}
+        </div>
         <div
           style={{ fontSize: '1.5rem' }}
         >{`${courseDetail?.direction} | ${courseDetail?.type} | ${courseDetail?.numberOfStudents} 人正在学习`}</div>

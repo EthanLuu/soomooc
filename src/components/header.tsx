@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Button, Layout, Menu, Typography, Dropdown } from 'antd'
+import { Button, Layout, Menu, Typography } from 'antd'
 import ButtonGroup from 'antd/lib/button/button-group'
 import { LogoSvg } from './lib'
 import { Search } from 'components/search'
@@ -8,6 +8,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import i18n from 'i18n/config'
 import { useAuth } from 'context/auth-context'
+import {User} from './user'
 
 export const Header: React.FC = () => {
   const { pathname } = useLocation()
@@ -134,23 +135,4 @@ const LanguageMenu = () => {
   )
 }
 
-const User = () => {
-  const { logout, user } = useAuth()
-  return (
-    <Dropdown
-      overlay={
-        <Menu>
-          <Menu.Item key={'logout'}>
-            <Button onClick={logout} type={'link'}>
-              登出
-            </Button>
-          </Menu.Item>
-        </Menu>
-      }
-    >
-      <Button type={'link'} onClick={(e) => e.preventDefault()}>
-        Hi, {user?.username}
-      </Button>
-    </Dropdown>
-  )
-}
+
