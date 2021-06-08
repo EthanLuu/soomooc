@@ -1,5 +1,3 @@
-import useRequest from '@ahooksjs/use-request'
-import { FullPageErrorFallback, FullPageLoading } from 'components/lib'
 import {
   createContext,
   ReactNode,
@@ -10,7 +8,6 @@ import {
 import { CourseProps } from 'type/course'
 import { useCourses } from 'utils/course'
 import { useHttp } from 'utils/http'
-import { useMyCourses } from 'utils/user'
 import { useAuth } from './auth-context'
 
 // 定义全局状态用来控制课程订阅
@@ -37,7 +34,7 @@ export const CourseProvider = ({ children }: { children: ReactNode }) => {
       user?.courses.includes(course._id)
     )
     setCourses(myCourses || [])
-  }, [])
+  }, [coursesAll, user])
 
   const subscribe = (newCourse: CourseProps) => {
     const newCourses = [...(courses || []), newCourse]

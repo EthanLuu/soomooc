@@ -1,11 +1,8 @@
 import styled from '@emotion/styled'
 import { Rate } from 'antd'
-import { useAuth } from 'context/auth-context'
 import { useCoursesContext } from 'context/course-context'
 import { useState } from 'react'
 import { CourseProps } from 'type/course'
-import { useHttp } from 'utils/http'
-import { useMyCourses } from 'utils/user'
 
 export const CourseBanner = ({
   courseDetail,

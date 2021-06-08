@@ -28,5 +28,5 @@ const Main = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #f0f2f5;
+  /* background-color: #f0f2f5; */
 `

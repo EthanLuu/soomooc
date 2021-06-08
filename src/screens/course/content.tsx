@@ -91,13 +91,14 @@ const LiveCard = ({ id }: { id?: string }) => {
   const status = {
     isLive: true,
     startTime: new Date(),
+    watchers: Math.floor(Math.random() * 100)
   }
 
   const time = status.startTime.toLocaleString()
   const desc = status.isLive ? (
     <>
       <p style={{ marginBottom: 0 }}>{`开播时间：${time}`}</p>
-      <p>{`观看人数：${Math.floor(Math.random() * 100)}`}</p>
+      <p>{`观看人数：${status.watchers}`}</p>
     </>
   ) : (
     <>

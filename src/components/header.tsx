@@ -8,7 +8,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import i18n from 'i18n/config'
 import { useAuth } from 'context/auth-context'
-import {User} from './user'
+import { User } from './user'
 
 export const Header: React.FC = () => {
   const { pathname } = useLocation()
@@ -29,6 +29,9 @@ export const Header: React.FC = () => {
         </Menu.Item>
         <Menu.Item key={'/course'}>
           <Link to={'/course'}>{t('header.course_list')}</Link>
+        </Menu.Item>
+        <Menu.Item key={'/management'}>
+          <Link to={'/management'}>{t('header.management')}</Link>
         </Menu.Item>
       </Menu>
       <LanguageMenu />
@@ -134,5 +137,3 @@ const LanguageMenu = () => {
     </Button>
   )
 }
-
-

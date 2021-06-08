@@ -6,7 +6,7 @@ export const MyCourseScreen = () => {
   return (
     <>
       <Row justify={'center'}>
-        <h2>我的课程</h2>
+        <h1>我的课程</h1>
       </Row>
       <Divider />
       <CourseList courses={courses || []}></CourseList>

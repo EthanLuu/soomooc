@@ -4,6 +4,7 @@
     "course_list": "Course List",
     "search_panel": "Search By Course Name",
     "register": "Register",
-    "login": "Login"
+    "login": "Login",
+    "management": "Management"
   }
 }

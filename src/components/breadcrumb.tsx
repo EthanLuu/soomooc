@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 const breadcrumbNameMap: { [url: string]: string } = {
   '/course': '课程列表',
+  '/management': '后台管理',
 }
 
 export const BreadCrumb = () => {
