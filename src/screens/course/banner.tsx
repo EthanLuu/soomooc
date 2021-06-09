@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Rate } from 'antd'
+import { Rate, Tag } from 'antd'
 import { useCoursesContext } from 'context/course-context'
 import { useState } from 'react'
 import { CourseProps } from 'type/course'
@@ -42,11 +42,20 @@ export const CourseBanner = ({
           />
           {`${courseDetail?.title}`}
         </div>
-        <div
-          style={{ fontSize: '1.5rem' }}
-        >{`${courseDetail?.direction} | ${courseDetail?.type} | ${courseDetail?.numberOfStudents} 人正在学习`}</div>
+        <Tags detail={courseDetail} />
       </Title>
     </Container>
+  )
+}
+
+const Tags = ({ detail }: { detail?: CourseProps }) => {
+  const { direction, type, numberOfStudents } = detail || {}
+  return (
+    <div style={{ fontSize: '1.5rem' }}>
+      <Tag>{direction}</Tag>
+      <Tag>{type}</Tag>
+      <Tag>{numberOfStudents} 人正在学习</Tag>
+    </div>
   )
 }
 

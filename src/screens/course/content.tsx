@@ -17,7 +17,6 @@ export const CourseContent = ({
       align={'middle'}
       style={{
         flex: 1,
-        flexDirection: 'row',
         padding: '2rem 0',
       }}
     >
@@ -30,17 +29,9 @@ export const CourseContent = ({
         }}
       >
         <Phone />
-        <div
-          style={{
-            flex: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '3rem',
-          }}
-        >
-          {`${courseDetail?.info}`}
-        </div>
+        <Row
+          style={{ padding: '2rem', fontSize: '3.2rem' }}
+        >{`${courseDetail?.info}`}</Row>
       </div>
       <div
         style={{
@@ -76,6 +67,7 @@ const TeacherCard = () => {
         textAlign: 'justify',
         overflow: 'hidden',
         borderRadius: 10,
+        border: 'none',
       }}
     >
       <Card.Meta
@@ -91,7 +83,7 @@ const LiveCard = ({ id }: { id?: string }) => {
   const status = {
     isLive: true,
     startTime: new Date(),
-    watchers: Math.floor(Math.random() * 100)
+    watchers: Math.floor(Math.random() * 100),
   }
 
   const time = status.startTime.toLocaleString()
@@ -109,7 +101,7 @@ const LiveCard = ({ id }: { id?: string }) => {
   return (
     <Link to={`/course/live/${id}`}>
       <Card
-        style={{ borderRadius: 10 }}
+        style={{ borderRadius: 10, border: 'none' }}
         actions={[<Button>进入直播间</Button>]}
       >
         <Card.Meta

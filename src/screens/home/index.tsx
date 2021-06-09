@@ -5,7 +5,7 @@ import { SideMenu } from './side-menu'
 
 export const HomePage: React.FC = () => {
   return (
-    <>
+    <div style={{ width: '90%', margin: '0 auto' }}>
       <Banner>
         <Col span={6}>
           <SideMenu />
@@ -14,7 +14,7 @@ export const HomePage: React.FC = () => {
           <Carousel />
         </Col>
       </Banner>
-    </>
+    </div>
   )
 }
 
