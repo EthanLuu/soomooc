@@ -3,9 +3,9 @@ import styled from '@emotion/styled'
 import { Button, Form, Input, message, Select, Space, Switch } from 'antd'
 import { useForm } from 'antd/lib/form/Form'
 import { useCoursesContext } from 'context/course-context'
+import { useState } from 'react'
 import { CourseProps, RoomStatus } from 'type/course'
 import { useHttp } from 'utils/http'
-import { useMyCourses } from 'utils/user'
 
 export const LiveManagement = () => {
   const [form] = useForm()
@@ -45,19 +45,25 @@ export const LiveManagement = () => {
       roomStatus,
     })
       .then(() => {
-        message.success('添加成功')
+        message.success('修改成功')
+        const old = myCourses?.find((c) => c._id === values.id)
+        if (old) {
+          old.roomStatus = roomStatus
+        }
       })
       .catch((error) => {
-        message.error('添加失败')
+        message.error('修改失败')
         console.log(error)
       })
   }
 
+  const [checked, setChecked] = useState(false)
+
   const onCourseChange = (id: string) => {
     const course = myCourses?.find((course) => course._id === id)
+    setChecked(course?.roomStatus.isLive || false)
     form.setFieldsValue({
       post: course?.roomStatus?.post,
-      isLive: course?.roomStatus?.isLive,
     })
   }
 
@@ -79,18 +85,20 @@ export const LiveManagement = () => {
           <Select onChange={onCourseChange}>
             {myCourses?.map((course) => {
               return (
-                <Select.Option value={course._id}>{course.title}</Select.Option>
+                <Select.Option key={course._id} value={course._id}>
+                  {course.title}
+                </Select.Option>
               )
             })}
           </Select>
         </Form.Item>
 
-        <Form.Item label="直播间公告" name="post">
+        <Form.Item label="直播间公告" name="post" shouldUpdate>
           <Input.TextArea rows={4} />
         </Form.Item>
 
-        <Form.Item label="打开直播" name="isLive">
-          <Switch />
+        <Form.Item label="开启直播" name="isLive" shouldUpdate>
+          <Switch checked={checked} onClick={() => setChecked(!checked)} />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 4 }}>

@@ -24,6 +24,7 @@ export const ChatRoom = () => {
     return () => {
       socket?.close()
     }
+    // eslint-disable-next-line
   }, [socketUrl])
 
   useEffect(() => {
