@@ -19,5 +19,5 @@ export const useCourseById = (courseId: string) => {
 
 export const useCourseIdInUrl = () => {
   const location = useLocation()
-  return location.pathname.split('/')[2]
+  return location.pathname.split('/').pop()
 }

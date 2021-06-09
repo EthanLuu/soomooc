@@ -6,5 +6,12 @@ export interface CourseProps {
   type: string // 类别：Vue，React
   numberOfStudents: number // 学生人数
   info: string // 课程的详细介绍
-  roomStatus?: object // 描述课程状态
+  roomStatus: RoomStatus // 描述课程状态
+}
+
+export interface RoomStatus {
+  isLive: boolean
+  watchers: number
+  post: string
+  startTime: Date | null
 }

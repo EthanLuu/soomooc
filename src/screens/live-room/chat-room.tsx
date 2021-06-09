@@ -21,6 +21,9 @@ export const ChatRoom = () => {
 
   useEffect(() => {
     setSocket(io(socketUrl))
+    return () => {
+      socket?.close()
+    }
   }, [socketUrl])
 
   useEffect(() => {
@@ -83,7 +86,7 @@ export const ChatRoom = () => {
           <Form.Item name={'content'} style={{ margin: 0, flex: 3 }}>
             <Input.TextArea
               autoSize={{ minRows: 3, maxRows: 5 }}
-              placeholder={'有什么要和老师说的吗'}
+              placeholder={'有什么要和大家分享的吗'}
             />
           </Form.Item>
           <div style={{ flex: 1 }}>

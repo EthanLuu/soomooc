@@ -1,8 +1,7 @@
 import useRequest from '@ahooksjs/use-request'
 import styled from '@emotion/styled'
-import { Form, Input, message } from 'antd'
+import { Button, Form, Input, message, Space } from 'antd'
 import { useForm } from 'antd/lib/form/Form'
-import { LongButton } from 'components/lib'
 import { CourseProps } from 'type/course'
 import { useHttp } from 'utils/http'
 
@@ -26,6 +25,7 @@ export const CourseManagement = () => {
       isLive: false,
       startTime: null,
       watchers: 0,
+      post: '',
     }
     values.numberOfStudents = 0
     run(values)
@@ -36,11 +36,18 @@ export const CourseManagement = () => {
         message.error('添加失败')
         console.log(error)
       })
+    form.resetFields()
   }
 
   return (
     <Container>
-      <Form form={form} layout="horizontal" onFinish={handleSubmit}>
+      <Form
+        labelCol={{ span: 4 }}
+        wrapperCol={{ span: 14 }}
+        form={form}
+        layout="horizontal"
+        onFinish={handleSubmit}
+      >
         <Form.Item
           label="课程名称"
           name="title"
@@ -81,10 +88,13 @@ export const CourseManagement = () => {
           <Input.TextArea rows={4} />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 3 }}>
-          <LongButton type="primary" htmlType="submit" loading={loading}>
-            添加
-          </LongButton>
+        <Form.Item wrapperCol={{ offset: 4 }}>
+          <Space size={'middle'}>
+            <Button type="primary" htmlType="submit" loading={loading}>
+              确定
+            </Button>
+            <Button onClick={() => form.resetFields()}>重置</Button>
+          </Space>
         </Form.Item>
       </Form>
     </Container>

@@ -1,6 +1,6 @@
 import { CourseProps } from 'type/course'
 import { Link } from 'react-router-dom'
-import { Button, Card, Row, Tabs } from 'antd'
+import { Button, Card, Col, Descriptions, Row, Tabs } from 'antd'
 import { Teacher } from 'type/user'
 import { Phone } from 'demo/phone'
 
@@ -13,30 +13,21 @@ export const CourseContent = ({
 
   return (
     <Row
-      justify={'center'}
+      justify={'space-between'}
       align={'middle'}
       style={{
         flex: 1,
         padding: '2rem 0',
       }}
     >
-      <div
+      <Phone />
+      <Col
+        span={12}
+        style={{ padding: '2rem', fontSize: '3.2rem' }}
+      >{`${courseDetail?.info}`}</Col>
+      <Col
+        span={6}
         style={{
-          flex: 2,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Phone />
-        <Row
-          style={{ padding: '2rem', fontSize: '3.2rem' }}
-        >{`${courseDetail?.info}`}</Row>
-      </div>
-      <div
-        style={{
-          width: '25%',
-          backgroundColor: '#fff',
           padding: '1rem 1rem',
           borderRadius: 10,
           boxShadow: '0 13px 15px rgba(0, 0, 0, 0.11)',
@@ -44,13 +35,13 @@ export const CourseContent = ({
       >
         <Tabs defaultActiveKey="1">
           <TabPane tab="直播状态" key="1">
-            <LiveCard id={courseDetail?._id} />
+            <LiveCard course={courseDetail} />
           </TabPane>
           <TabPane tab="讲师介绍" key="2">
             <TeacherCard />
           </TabPane>
         </Tabs>
-      </div>
+      </Col>
     </Row>
   )
 }
@@ -79,35 +70,29 @@ const TeacherCard = () => {
   )
 }
 
-const LiveCard = ({ id }: { id?: string }) => {
-  const status = {
-    isLive: true,
-    startTime: new Date(),
-    watchers: Math.floor(Math.random() * 100),
-  }
-
-  const time = status.startTime.toLocaleString()
-  const desc = status.isLive ? (
-    <>
-      <p style={{ marginBottom: 0 }}>{`开播时间：${time}`}</p>
-      <p>{`观看人数：${status.watchers}`}</p>
-    </>
-  ) : (
-    <>
-      <p style={{ marginBottom: 0 }}>{`上次直播时间：${time}`}</p>
-    </>
+const LiveCard = ({ course }: { course?: CourseProps }) => {
+  const status = course?.roomStatus
+  const time = new Date(status?.startTime || '')?.toLocaleString()
+  const { isLive, watchers, post } = status || {}
+  const desc = (
+    <Descriptions title={isLive ? '正在直播中' : '暂未开播'} column={1}>
+      <Descriptions.Item label={isLive ? '开播时间' : '上次开播时间'}>
+        {time}
+      </Descriptions.Item>
+      {isLive ? (
+        <Descriptions.Item label={'观看人数'}>{watchers}</Descriptions.Item>
+      ) : null}
+      <Descriptions.Item label={'直播间公告'}>{post}</Descriptions.Item>
+    </Descriptions>
   )
 
   return (
-    <Link to={`/course/live/${id}`}>
+    <Link to={`/course/live/${course?._id}`}>
       <Card
         style={{ borderRadius: 10, border: 'none' }}
         actions={[<Button>进入直播间</Button>]}
       >
-        <Card.Meta
-          title={status.isLive ? '正在直播中' : '尚未开播'}
-          description={desc}
-        />
+        {desc}
       </Card>
     </Link>
   )

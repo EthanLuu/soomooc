@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { Button, Result } from 'antd'
 import { BreadCrumb } from 'components/breadcrumb'
+import { FullPageLoading } from 'components/lib'
 import { RouteComponentProps } from 'react-router-dom'
 import { useJumpTo } from 'utils'
 import { useCourseById } from 'utils/course'
@@ -11,14 +12,13 @@ export const LiveRoomScreen: React.FC<
   RouteComponentProps<{ courseId: string }>
 > = (props) => {
   const courseId = props.match.params.courseId
-  const { data: course } = useCourseById(courseId)
-  const LiveStatus = {
-    isLive: false,
-  }
+  const { data: course, loading } = useCourseById(courseId)
+  const LiveStatus = course?.roomStatus
+  if (loading) return <FullPageLoading />
   return (
     <>
       <BreadCrumb />
-      {!LiveStatus.isLive ? (
+      {!LiveStatus?.isLive ? (
         <NotLive />
       ) : (
         <div>
@@ -31,7 +31,6 @@ export const LiveRoomScreen: React.FC<
             />
             <ChatRoom />
           </Container>
-          )
         </div>
       )}
     </>
