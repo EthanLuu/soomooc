@@ -1,14 +1,18 @@
 import { CourseList } from './list'
 import { useCourses } from 'utils/course'
-import { PageTitle } from 'components/lib'
+import { FullPageLoading, PageTitle } from 'components/lib'
 
 export const CourseListScreen: React.FC = () => {
-  const { data: courses } = useCourses()
+  const { loading, data: courses } = useCourses()
 
   return (
     <>
       <PageTitle title={'课程列表'} />
-      <CourseList courses={courses || []}></CourseList>
+      {loading ? (
+        <FullPageLoading />
+      ) : (
+        <CourseList courses={courses || []}></CourseList>
+      )}
     </>
   )
 }

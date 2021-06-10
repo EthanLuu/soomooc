@@ -7,6 +7,7 @@ import { UnauthenticatedApp } from 'screens/unauthenticated-app'
 import { LiveRoomScreen } from 'screens/live-room'
 import { MyCourseScreen } from 'screens/course-list/my-course'
 import { ManagementScreen } from 'screens/management'
+import { SeachCourseScreen } from 'screens/course-list/search'
 
 export const Routes = () => {
   return (
@@ -19,6 +20,7 @@ export const Routes = () => {
       <Route exact path={'/login'} component={UnauthenticatedApp} />
       <Route exact path={'/register'} component={UnauthenticatedApp} />
       <Route exact path={'/management'} component={ManagementScreen} />
+      <Route exact path={'/search'} component={SeachCourseScreen} />
       <Route path={'*'} component={NotFoundPage} />
     </Switch>
   )
