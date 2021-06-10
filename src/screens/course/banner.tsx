@@ -3,6 +3,7 @@ import { Rate, Tag } from 'antd'
 import { useCoursesContext } from 'context/course-context'
 import { useState } from 'react'
 import { CourseProps } from 'type/course'
+import { useSearchCourse } from 'utils'
 
 export const CourseBanner = ({
   courseDetail,
@@ -50,11 +51,21 @@ export const CourseBanner = ({
 
 const Tags = ({ detail }: { detail?: CourseProps }) => {
   const { direction, type, numberOfStudents } = detail || {}
+  const searchByDirection = useSearchCourse({ d: direction })
+  const searchByType = useSearchCourse({ t: type })
   return (
     <div style={{ fontSize: '1.5rem' }}>
-      <Tag>{direction}</Tag>
-      <Tag>{type}</Tag>
-      <Tag>{numberOfStudents} 人正在学习</Tag>
+      <Tag
+        onClick={searchByDirection}
+        style={{ cursor: 'pointer' }}
+        color="magenta"
+      >
+        {direction}
+      </Tag>
+      <Tag onClick={searchByType} style={{ cursor: 'pointer' }} color="red">
+        {type}
+      </Tag>
+      <Tag color="blue">{numberOfStudents} 人正在学习</Tag>
     </div>
   )
 }
