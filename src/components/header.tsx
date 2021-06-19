@@ -82,6 +82,7 @@ const Logo = () => {
 }
 
 const HeaderContainer = styled(Layout.Header)`
+  width: 100%;
   background: white;
   display: flex;
   box-shadow: 0 2px 8px #f0f1f2;
@@ -89,6 +90,9 @@ const HeaderContainer = styled(Layout.Header)`
   align-items: center;
   flex-flow: row nowrap;
   justify-content: space-between;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  backdrop-filter: blur(3px);
 `
 
 interface LanguageState {

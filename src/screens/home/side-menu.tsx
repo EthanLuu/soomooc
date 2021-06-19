@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { Menu } from 'antd'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useHttp } from 'utils/http'
 
 interface MenuItemProp {
@@ -22,9 +23,15 @@ export const SideMenu: React.FC = () => {
   const renderMenu = (items: MenuItemProp[]) => {
     return items.map((item) => {
       return (
-        <SubMenu key={item._id} title={`${item.direction}：${item.types.join(' / ')}`} style={{ flex: 'auto' }}>
+        <SubMenu
+          key={item._id}
+          title={`${item.direction}：${item.types.join(' / ')}`}
+          style={{ flex: 'auto' }}
+        >
           {item.types.map((type) => (
-            <Menu.Item key={type}>{type}</Menu.Item>
+            <Menu.Item key={type}>
+              <Link to={`/search?t=${type}`}>{type}</Link>
+            </Menu.Item>
           ))}
         </SubMenu>
       )

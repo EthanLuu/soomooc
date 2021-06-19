@@ -1,6 +1,15 @@
 import useRequest from '@ahooksjs/use-request'
 import styled from '@emotion/styled'
-import { Button, Form, Input, message, Select, Space, Switch } from 'antd'
+import {
+  Button,
+  Form,
+  Input,
+  message,
+  Modal,
+  Select,
+  Space,
+  Switch,
+} from 'antd'
 import { useForm } from 'antd/lib/form/Form'
 import { useCoursesContext } from 'context/course-context'
 import { useState } from 'react'
@@ -26,6 +35,17 @@ export const LiveManagement = () => {
     throwOnError: true,
   })
 
+  const clickToCopy = (url: string) => {
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        message.success('复制成功')
+      })
+      .catch((e) => {
+        message.error('复制失败' + e)
+      })
+  }
+
   const handleSubmit = (values: {
     id: string
     post: string
@@ -45,10 +65,22 @@ export const LiveManagement = () => {
       roomStatus,
     })
       .then(() => {
-        message.success('修改成功')
         const old = myCourses?.find((c) => c._id === values.id)
+        const url = `rtmp://121.43.155.202/live/${values.id}`
         if (old) {
           old.roomStatus = roomStatus
+        }
+        if (values.isLive) {
+          Modal.success({
+            content: (
+              <p onClick={() => clickToCopy(url)}>
+                开启直播成功，请在 OBS 中输入推流地址：{url}
+              </p>
+            ),
+            width: 520,
+          })
+        } else {
+          message.success('关闭成功')
         }
       })
       .catch((error) => {
