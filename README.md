@@ -7,7 +7,7 @@
 - React 17.0.2
 - React-Router 5.2.0
 - Typescript
-- Ant Design 
+- Ant Design
 - flv.js 1.5.0
 - json-server
 
@@ -15,13 +15,13 @@
 
 ```shell
 # 安装依赖
-yarn 				# npm install
+yarn # npm install
 
 # 运行 json-server
-yarn mock		# npm run mock
+yarn mock # npm run mock
 
 # 启动项目
-yarn start 	# npm run start
+yarn start # npm run start
 ```
 
 ## Learn More

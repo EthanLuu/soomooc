@@ -1,24 +1,27 @@
-import useRequest from '@ahooksjs/use-request'
-import styled from '@emotion/styled'
 import {
   Button,
   Form,
   Input,
-  message,
   Modal,
   Select,
   Space,
   Switch,
+  message,
 } from 'antd'
-import { useForm } from 'antd/lib/form/Form'
-import { useCoursesContext } from 'context/course-context'
-import { useState } from 'react'
 import { CourseProps, RoomStatus } from 'type/course'
+
+import styled from '@emotion/styled'
+import { useCoursesContext } from 'context/course-context'
+import { useForm } from 'antd/lib/form/Form'
+import { useHistory } from 'react-router-dom'
 import { useHttp } from 'utils/http'
+import useRequest from '@ahooksjs/use-request'
+import { useState } from 'react'
 
 export const LiveManagement = () => {
   const [form] = useForm()
   const client = useHttp()
+  const history = useHistory()
   const { courses: myCourses = [] } = useCoursesContext()
   const editLive = async (course: Partial<CourseProps>) => {
     return await client('course/edit', {
@@ -66,16 +69,26 @@ export const LiveManagement = () => {
     })
       .then(() => {
         const old = myCourses?.find((c) => c._id === values.id)
-        const url = `rtmp://121.43.155.202/live/${values.id}`
+        const serverUrl = 'rtmp://121.43.155.202/live/'
+        const password = values.id
         if (old) {
           old.roomStatus = roomStatus
         }
-        if (values.isLive) {
-          Modal.success({
+        if (checked) {
+          Modal.confirm({
+            onOk: () => history.push('/course/live/' + password),
+            okText: '跳转直播间',
+            cancelText: '关闭',
             content: (
-              <p onClick={() => clickToCopy(url)}>
-                开启直播成功，请在 OBS 中输入推流地址：{url}
-              </p>
+              <div>
+                <p>开启直播成功，请在 OBS 中进行推流配置</p>
+                <p onClick={() => clickToCopy(serverUrl)}>
+                  服务器：<span>{serverUrl}</span>
+                </p>
+                <p onClick={() => clickToCopy(password)}>
+                  串流密钥：<span>{password}</span>
+                </p>
+              </div>
             ),
             width: 520,
           })

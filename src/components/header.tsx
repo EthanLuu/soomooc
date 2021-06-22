@@ -30,9 +30,11 @@ export const Header: React.FC = () => {
         <Menu.Item key={'/course'}>
           <Link to={'/course'}>{t('header.course_list')}</Link>
         </Menu.Item>
-        <Menu.Item key={'/management'}>
-          <Link to={'/management'}>{t('header.management')}</Link>
-        </Menu.Item>
+        {user && user?.privilegeType <= 1 ? (
+          <Menu.Item key={'/management'}>
+            <Link to={'/management'}>{t('header.management')}</Link>
+          </Menu.Item>
+        ) : null}
       </Menu>
       <LanguageMenu />
       <Search placeholder={t('header.search_panel')} />

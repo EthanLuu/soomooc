@@ -19,7 +19,6 @@ export const login = async (data: { username: string; password: string }) => {
     },
   })
   const res = await response.json()
-  console.log(res)
   const user = res.data
   if (!user || data.password !== user.password) {
     return Promise.reject('用户名或密码错误❌')
@@ -34,18 +33,20 @@ export const register = async (data: {
   username: string
   password: string
 }) => {
-  const user = { ...data, token: Math.random().toString(36).slice(-6) }
+  const userInfo = { ...data, token: Math.random().toString(36).slice(-6), privilegeType: 2 }
   const response = await fetch(`${apiUrl}/user`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify(userInfo),
   })
+  const res = await response.json()
+  const user = res.data
   if (response.ok) {
-    return handleUserResponse(await response.json())
+    return handleUserResponse(user)
   } else {
-    return Promise.reject(await response.json())
+    return Promise.reject(user)
   }
 }
 

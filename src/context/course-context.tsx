@@ -36,7 +36,7 @@ export const CourseProvider = ({ children }: { children: ReactNode }) => {
     setCourses(myCourses || [])
   }, [coursesAll, user])
 
-  const subscribe = (newCourse: CourseProps) => {
+  const subscribe = async (newCourse: CourseProps) => {
     const newCourses = [...(courses || []), newCourse]
     const config = {
       method: 'POST',
@@ -44,12 +44,11 @@ export const CourseProvider = ({ children }: { children: ReactNode }) => {
         courses: newCourses,
       },
     }
-    return client(`user/editcourses/${user?._id}`, config).then(() =>
-      setCourses(newCourses)
-    )
+    await client(`user/editcourses/${user?._id}`, config)
+    return setCourses(newCourses)
   }
 
-  const unsubscribe = (oldCourse: CourseProps) => {
+  const unsubscribe = async (oldCourse: CourseProps) => {
     const newCourses = courses?.filter((course) => course._id !== oldCourse._id)
     const config = {
       method: 'POST',
@@ -57,9 +56,8 @@ export const CourseProvider = ({ children }: { children: ReactNode }) => {
         courses: newCourses,
       },
     }
-    return client(`user/editcourses/${user?._id}`, config).then(() =>
-      setCourses(newCourses)
-    )
+    await client(`user/editcourses/${user?._id}`, config)
+    return setCourses(newCourses)
   }
 
   return (

@@ -24,6 +24,11 @@ export const User = () => {
     >
       <Button type={'link'} onClick={(e) => e.preventDefault()}>
         Hi, {user?.username}
+        {user?.privilegeType === 0
+          ? '管理员'
+          : user?.privilegeType === 1
+          ? '老师'
+          : '同学'}
       </Button>
     </Dropdown>
   )
