@@ -1,12 +1,12 @@
-import styled from '@emotion/styled'
-import { Button, Result } from 'antd'
-import { BreadCrumb } from 'components/breadcrumb'
-import { FullPageLoading } from 'components/lib'
-import { RouteComponentProps } from 'react-router-dom'
-import { useJumpTo } from 'utils'
-import { useCourseById } from 'utils/course'
-import { ChatRoom } from './chat-room'
-import { LivePlayer } from './live-player'
+import { Button, Result } from 'antd';
+import { BreadCrumb } from 'components/breadcrumb';
+import { FullPageLoading } from 'components/lib';
+import { RouteComponentProps } from 'react-router-dom';
+import { useJumpTo } from 'utils';
+import { useCourseById } from 'utils/course';
+import styled from '@emotion/styled';
+import { ChatRoom } from './chat-room';
+import { LivePlayer } from './live-player';
 
 export const LiveRoomScreen: React.FC<
   RouteComponentProps<{ courseId: string }>
@@ -14,6 +14,8 @@ export const LiveRoomScreen: React.FC<
   const courseId = props.match.params.courseId
   const { data: course, loading } = useCourseById(courseId)
   const LiveStatus = course?.roomStatus
+  const liveSrc = `http://localhost:8080/live/${courseId}.flv`
+
   if (loading) return <FullPageLoading />
   return (
     <>
@@ -25,7 +27,7 @@ export const LiveRoomScreen: React.FC<
           <h1>{course?.title}</h1>
           <Container>
             <LivePlayer
-              url={`http://121.43.155.202:8080/live/${courseId}.flv`}
+              url={liveSrc}
               type="flv"
               isLive={LiveStatus.isLive}
             />

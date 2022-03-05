@@ -35,6 +35,7 @@ export const LivePlayer = (props: LivePlayerProps) => {
             })
             .catch((e) => {
               // 音频加载失败
+              console.log(e)
               console.log('视频加载失败')
             })
         }
