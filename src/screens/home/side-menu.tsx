@@ -1,7 +1,5 @@
 import { Menu } from 'antd';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useHttp } from 'utils/http';
 import styled from '@emotion/styled';
 
 interface MenuItemProp {
@@ -10,15 +8,10 @@ interface MenuItemProp {
     types: string[];
 }
 
-export const SideMenu: React.FC = () => {
+export const SideMenu: React.FC<{ menuItems: MenuItemProp[] }> = ({
+    menuItems
+}) => {
     const { SubMenu } = Menu;
-    const [menuItems, setMenuItems] = useState<MenuItemProp[]>([]);
-    const client = useHttp();
-    useEffect(() => {
-        client("menu/menus").then((MenuItems: MenuItemProp[]) => {
-            setMenuItems(MenuItems);
-        });
-    }, [client]);
 
     const renderMenu = (items: MenuItemProp[]) => {
         return items.map((item) => {
