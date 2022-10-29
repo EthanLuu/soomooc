@@ -26,4 +26,4 @@ yarn start # npm run start
 
 ## Learn More
 
-你可以访问我的博客，里面有详细的[开发日志](https://blog.ethanloo.top/post/2021-05-09-SooMooc/%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%20-%20SooMooc%20%E7%9B%B4%E6%92%AD%E5%B9%B3%E5%8F%B0/)。
+你可以访问我的博客，里面有详细的[开发日志](https://blog.ethanloo.cn/post/2021-05-09-SooMooc/%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%20-%20SooMooc%20%E7%9B%B4%E6%92%AD%E5%B9%B3%E5%8F%B0/)。
