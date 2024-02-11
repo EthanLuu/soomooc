@@ -5,11 +5,11 @@ import { SearchCourseParams } from '@/utils'
 import { useCourses } from '@/utils/course'
 import { CourseList } from './list'
 
-export const SeachCourseScreen = () => {
+export default () => {
   const location = useLocation()
   const params: SearchCourseParams = qs.parse(location.search.slice(1))
   const { data: courses, loading } = useCourses()
-  const result = courses?.filter((course) => {
+  const result = courses?.filter(course => {
     if (
       params.w &&
       !course.title?.toLocaleUpperCase().includes(params.w?.toLocaleUpperCase())

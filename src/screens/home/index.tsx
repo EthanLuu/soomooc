@@ -9,7 +9,7 @@ import styled from '@emotion/styled'
 import { SideMenu } from './side-menu'
 import { SlideList } from './slide-list'
 
-export const HomePage: React.FC = () => {
+export default () => {
   const client = useHttp()
   const [loading, setLoading] = useState(false)
   const [carousels, setCarousels] = useState<CourseProps[]>([])
@@ -66,6 +66,6 @@ const Banner = styled(Row)`
   overflow: hidden;
   height: 36rem;
   max-width: 1200px;
-  box-shadow: 0 1.9px 2px rgba(0, 0, 0, 0.044),
-    0 0px 4px rgba(0, 0, 0, 0.066), 0 0px 10px rgba(0, 0, 0, 0.11);
+  box-shadow: 0 1.9px 2px rgba(0, 0, 0, 0.044), 0 0px 4px rgba(0, 0, 0, 0.066),
+    0 0px 10px rgba(0, 0, 0, 0.11);
 `

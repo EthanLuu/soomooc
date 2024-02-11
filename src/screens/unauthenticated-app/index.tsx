@@ -5,7 +5,7 @@ import { LoginScreen } from './login'
 import { RegisterScreen } from './register'
 import { LogoSvg } from '@/components/lib'
 
-export const UnauthenticatedApp = () => {
+export default () => {
   const url = useLocation()
   const showError = (error: string) => {
     notification.open({

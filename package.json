@@ -6,7 +6,8 @@
     "dev": "rsbuild dev --open",
     "build": "rsbuild build",
     "preview": "rsbuild preview",
-    "mock": "json-server --watch __json_server_mock__/db.json --port 3333"
+    "mock": "json-server --watch __json_server_mock__/db.json --port 3333",
+    "analyze": "BUNDLE_ANALYZE=true yarn build"
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",

@@ -2,7 +2,7 @@ import { CourseList } from './list'
 import { useCourses } from '@/utils/course'
 import { FullPageLoading, PageTitle } from '@/components/lib'
 
-export const CourseListScreen: React.FC = () => {
+export default () => {
   const { loading, data: courses } = useCourses()
 
   return (

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Card as AntCard } from 'antd'
-import { CourseProps } from 'type/course'
+import { CourseProps } from '@/type/course'
 import { Link } from 'react-router-dom'
 
 export const CourseCard: React.FC<{ course: CourseProps }> = ({ course }) => {

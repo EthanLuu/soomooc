@@ -7,9 +7,7 @@ import { ChatRoom } from './chat-room'
 import { LivePlayer } from './live-player'
 import { Col, Row } from 'antd'
 
-export const LiveRoomScreen: React.FC<
-  RouteComponentProps<{ courseId: string }>
-> = props => {
+export default (props: RouteComponentProps<{ courseId: string }>) => {
   const courseId = props.match.params.courseId
   const { data: course, loading } = useCourseById(courseId)
   const LiveStatus = course?.roomStatus

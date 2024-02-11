@@ -7,6 +7,18 @@ export default defineConfig({
   html: {
     title: 'Soo Mooc',
   },
+  dev: {
+    assetPrefix: 'auto',
+  },
+  output: {
+    assetPrefix: 'auto',
+  },
+  performance: {
+    chunkSplit: {
+      strategy: 'split-by-size',
+      minSize: 30000,
+    },
+  },
   source: {
     alias: {
       '@': './src',

@@ -5,7 +5,7 @@ import { CourseManagement } from './course'
 import { LiveManagement } from './live'
 import { UserManagement } from './user'
 
-export const ManagementScreen = () => {
+export default () => {
   const { TabPane } = Tabs
   const { user } = useAuth()
   return (
