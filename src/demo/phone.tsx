@@ -1,6 +1,5 @@
-import Icon from '@ant-design/icons/lib/components/Icon'
 import styled from '@emotion/styled'
-import { ReactComponent as Logo } from '@/assets/phone.svg'
+import {ReactComponent as PhoneIcon} from '@/assets/phone.svg'
 
 const Container = styled.div`
   align-items: center;
@@ -18,7 +17,7 @@ const Container = styled.div`
     height: 400px;
     overflow: hidden;
     position: relative;
-    width: 230px;
+    width: 220px;
   }
   > .x {
     pointer-events: none;
@@ -31,7 +30,7 @@ export const Phone = () => {
   return (
     <Container>
       <div className="phone">
-        <Icon component={Logo} style={{ fontSize: '40rem' }} />
+        <PhoneIcon style={{height: "100%", width: "100%"}}/>
       </div>
     </Container>
   )

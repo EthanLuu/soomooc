@@ -4,7 +4,7 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import styled from '@emotion/styled'
 import { Routes } from '@/routes'
-import { BackTop } from 'antd'
+import { FloatButton } from 'antd'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Switch>
             <Routes />
           </Switch>
-          <BackTop />
+          <FloatButton.BackTop />
         </Main>
         <Footer />
       </Router>

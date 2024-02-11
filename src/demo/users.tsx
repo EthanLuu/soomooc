@@ -1,7 +1,7 @@
 import { Button, Card, Input, Form } from 'antd'
 import { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { http } from 'utils/http'
+import { http } from '@/utils/http'
 
 interface UserProps {
   id: number

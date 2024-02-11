@@ -1,6 +1,6 @@
 import { Col, Pagination, Row } from 'antd'
 import { useEffect, useState } from 'react'
-import { CourseProps } from 'type/course'
+import { CourseProps } from '@/type/course'
 import { CourseCard } from './card'
 
 interface ListProps {
@@ -21,7 +21,7 @@ export const CourseList: React.FC<ListProps> = ({ courses }) => {
       <Row gutter={24} align={'middle'}>
         {curCourses?.map((course) => {
           return (
-            <Col span={6} key={course._id}>
+            <Col xs={24} md={12} lg={8} key={course._id}>
               <CourseCard course={course}></CourseCard>
             </Col>
           )

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Button, Layout, Menu, Typography } from 'antd'
+import { Button, Col, Layout, Menu, Row, Typography } from 'antd'
 import ButtonGroup from 'antd/lib/button/button-group'
 import { LogoSvg } from './lib'
 import { Search } from './search'
@@ -15,6 +15,25 @@ export const Header: React.FC = () => {
   const { t } = useTranslation()
   const { user } = useAuth()
 
+  const menuItems = [
+    {
+      label: t('header.home'),
+      key: '/',
+    },
+    {
+      label: t('header.course_list'),
+      key: '/course',
+    },
+    ...(user && user.privilegeType <= 1
+      ? [
+          {
+            label: t('header.management'),
+            key: '/management',
+          },
+        ]
+      : []),
+  ]
+
   return (
     <HeaderContainer>
       <Logo />
@@ -22,20 +41,12 @@ export const Header: React.FC = () => {
         theme="light"
         mode="horizontal"
         selectedKeys={[pathname]}
-        style={{ flex: 1 }}
-      >
-        <Menu.Item key={'/'}>
-          <Link to={'/'}>{t('header.home')}</Link>
-        </Menu.Item>
-        <Menu.Item key={'/course'}>
-          <Link to={'/course'}>{t('header.course_list')}</Link>
-        </Menu.Item>
-        {user && user?.privilegeType <= 1 ? (
-          <Menu.Item key={'/management'}>
-            <Link to={'/management'}>{t('header.management')}</Link>
-          </Menu.Item>
-        ) : null}
-      </Menu>
+        style={{ flex: 1, borderBottom: 'none' }}
+        items={menuItems.map(item => ({
+          ...item,
+          label: <Link to={item.key}>{item.label}</Link>,
+        }))}
+      ></Menu>
       <LanguageMenu />
       <Search placeholder={t('header.search_panel')} />
       {user ? (
@@ -58,33 +69,27 @@ export const Header: React.FC = () => {
   )
 }
 
-export const LogoImg = styled.img`
-  height: 5rem;
-  width: 5rem;
-  float: left;
-  margin: 0.7rem 0;
-`
-
 const Logo = () => {
   return (
-    <Link to={'/'} style={{ display: 'flex', alignItems: 'center' }}>
-      <LogoSvg size={'5rem'} />
-      <Typography.Title
-        level={3}
-        style={{
-          display: 'inline-block',
-          lineHeight: '6.4rem',
-          margin: '0 2rem 0 0',
-        }}
+    <Link to={'/'} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+      <HeaderTitle
+        gutter={24}
+        align="middle"
+        justify="center"
+        style={{ flexWrap: 'nowrap' }}
       >
-        SooMooc
-      </Typography.Title>
+        <Col span={6} style={{ display: 'flex', alignItems: 'center' }}>
+          <LogoSvg size={'3rem'} />
+        </Col>
+        <Col span={0} md={18}>
+          <h3 style={{ margin: 0, fontSize: '2rem' }}>SooMooc</h3>
+        </Col>
+      </HeaderTitle>
     </Link>
   )
 }
 
 const HeaderContainer = styled(Layout.Header)`
-  width: 100%;
   background: white;
   display: flex;
   box-shadow: 0 2px 8px #f0f1f2;
@@ -95,6 +100,12 @@ const HeaderContainer = styled(Layout.Header)`
   z-index: 1;
   transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
   backdrop-filter: blur(3px);
+`
+
+const HeaderTitle = styled(Row)`
+  :hover {
+    color: #1890ff;
+  }
 `
 
 interface LanguageState {

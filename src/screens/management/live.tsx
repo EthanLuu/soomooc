@@ -15,7 +15,7 @@ import { useCoursesContext } from '@/context/course-context'
 import { useForm } from 'antd/lib/form/Form'
 import { useHistory } from 'react-router-dom'
 import { useHttp } from '@/utils/http'
-import useRequest from 'ahooks'
+import { useRequest } from 'ahooks'
 import { useState } from 'react'
 
 export const LiveManagement = () => {
@@ -33,9 +33,38 @@ export const LiveManagement = () => {
     })
   }
 
-  const { run, loading } = useRequest<CourseProps>(editLive, {
+  const { run, loading } = useRequest<CourseProps, any>(editLive, {
     manual: true,
-    throwOnError: true,
+    onSuccess: values => {
+      const old = myCourses?.find(c => c._id === values._id)
+      const serverUrl = 'rtmp://121.43.155.202/live/'
+      const password = values._id
+      if (old) {
+        old.roomStatus = values.roomStatus
+      }
+      if (checked) {
+        Modal.confirm({
+          onOk: () => history.push('/course/live/' + password),
+          okText: '跳转直播间',
+          cancelText: '关闭',
+          content: (
+            <div>
+              <p>开启直播成功，请在 OBS 中进行推流配置</p>
+              <p onClick={() => clickToCopy(serverUrl)}>
+                服务器：<span>{serverUrl}</span>
+              </p>
+              <p onClick={() => clickToCopy(password)}>
+                串流密钥：<span>{password}</span>
+              </p>
+            </div>
+          ),
+          width: 520,
+        })
+      } else {
+        message.success('关闭成功')
+      }
+    },
+    onError: () => message.error('关闭失败'),
   })
 
   const clickToCopy = (url: string) => {
@@ -44,7 +73,7 @@ export const LiveManagement = () => {
       .then(() => {
         message.success('复制成功')
       })
-      .catch((e) => {
+      .catch(e => {
         message.error('复制失败' + e)
       })
   }
@@ -67,45 +96,12 @@ export const LiveManagement = () => {
       _id: values.id,
       roomStatus,
     })
-      .then(() => {
-        const old = myCourses?.find((c) => c._id === values.id)
-        const serverUrl = 'rtmp://121.43.155.202/live/'
-        const password = values.id
-        if (old) {
-          old.roomStatus = roomStatus
-        }
-        if (checked) {
-          Modal.confirm({
-            onOk: () => history.push('/course/live/' + password),
-            okText: '跳转直播间',
-            cancelText: '关闭',
-            content: (
-              <div>
-                <p>开启直播成功，请在 OBS 中进行推流配置</p>
-                <p onClick={() => clickToCopy(serverUrl)}>
-                  服务器：<span>{serverUrl}</span>
-                </p>
-                <p onClick={() => clickToCopy(password)}>
-                  串流密钥：<span>{password}</span>
-                </p>
-              </div>
-            ),
-            width: 520,
-          })
-        } else {
-          message.success('关闭成功')
-        }
-      })
-      .catch((error) => {
-        message.error('修改失败')
-        console.log(error)
-      })
   }
 
   const [checked, setChecked] = useState(false)
 
   const onCourseChange = (id: string) => {
-    const course = myCourses?.find((course) => course._id === id)
+    const course = myCourses?.find(course => course._id === id)
     setChecked(course?.roomStatus.isLive || false)
     form.setFieldsValue({
       post: course?.roomStatus?.post,
@@ -128,7 +124,7 @@ export const LiveManagement = () => {
           rules={[{ required: true, message: '请选择课程' }]}
         >
           <Select onChange={onCourseChange}>
-            {myCourses?.map((course) => {
+            {myCourses?.map(course => {
               return (
                 <Select.Option key={course._id} value={course._id}>
                   {course.title}

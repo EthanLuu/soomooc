@@ -10,8 +10,9 @@
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
     "useDefineForClassFields": true,
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"] // enables us to use @components/MyComponent
+      "@/*": ["src/*"]
     }
   },
   "include": ["src"],

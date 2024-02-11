@@ -1,7 +1,7 @@
 import { useAuth } from '@/context/auth-context'
 import { Button, Form, Input } from 'antd'
 import { useJumpTo } from '@/utils'
-import useRequest from 'ahooks'
+import { useRequest } from 'ahooks'
 
 export const LoginScreen = ({
   onError,
@@ -9,16 +9,15 @@ export const LoginScreen = ({
   onError: (error: string) => void
 }) => {
   const { login } = useAuth()
+  const backHome = useJumpTo('/')
   const { run, loading } = useRequest(login, {
     manual: true,
-    throwOnError: true,
+    onSuccess: backHome,
+    onError: e => onError(e.message),
   })
-  const backHome = useJumpTo('/')
 
   const handleSubmit = (values: { username: string; password: string }) => {
     run(values)
-      .then(() => backHome())
-      .catch(onError)
   }
 
   return (

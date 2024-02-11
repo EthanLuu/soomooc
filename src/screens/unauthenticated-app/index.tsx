@@ -16,10 +16,10 @@ export const UnauthenticatedApp = () => {
   return (
     <Container>
       <Title>
-        <p>
-          <Typography.Text strong>SooMooc</Typography.Text>
-          <LogoSvg size={'7rem'} />
-        </p>
+        <Typography.Title level={2}>
+          <span style={{ marginRight: 12, fontSize: '5rem' }}>SooMooc</span>
+          <LogoSvg size={'6rem'} />
+        </Typography.Title>
         <p>你的不二之选</p>
       </Title>
       <FromContainer>

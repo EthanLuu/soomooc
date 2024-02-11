@@ -1,5 +1,5 @@
 /* @jsxImportSource @emotion/react */
-import { LivePlayer } from 'screens/live-room/live-player'
+import { LivePlayer } from '@/screens/live-room/live-player'
 import styled from '@emotion/styled'
 
 export const LiveDemo = ({ id }: { id: string }) => {

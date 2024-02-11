@@ -20,12 +20,12 @@ export const Carousel: React.FC<{ courses: CourseProps[] }> = ({ courses }) => {
 };
 
 const CardContainer = styled.div`
-    height: 40rem;
+    height: 36rem;
     width: 100%;
     background-size: cover;
     background-position: center;
 `;
 
 const CarouselContainer = styled(AntCarousel)`
-    height: 40rem;
+    height: 36rem;
 `;

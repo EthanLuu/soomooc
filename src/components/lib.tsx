@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import { Spin, Typography, Row, Divider, Button, ButtonProps } from 'antd'
-import { ReactComponent as Logo } from '@/assets/logo.svg'
-import Icon from '@ant-design/icons/lib/components/Icon'
+import { TwitchOutlined } from '@ant-design/icons'
 
 const FullPage = styled.div`
   flex: 1;
@@ -25,7 +24,7 @@ export const FullPageLoading = () => {
 }
 
 export const LogoSvg = ({ size }: { size?: string }) => {
-  return <Icon component={Logo} style={{ fontSize: size }} />
+  return <TwitchOutlined style={{ fontSize: size }}/>
 }
 
 export const PageTitle = ({ title }: { title: string }) => {

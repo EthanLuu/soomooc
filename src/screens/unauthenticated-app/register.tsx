@@ -11,7 +11,8 @@ export const RegisterScreen = ({
   const { register } = useAuth()
   const { run, loading } = useRequest(register, {
     manual: true,
-    throwOnError: true,
+    onSuccess: () => backHome(),
+    onError: error => onError(error.message),
   })
   const backHome = useJumpTo('/')
 
@@ -29,8 +30,6 @@ export const RegisterScreen = ({
     }
 
     run(values)
-      .then(() => backHome())
-      .catch(onError)
   }
 
   return (
