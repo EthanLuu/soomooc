@@ -6,4 +6,5 @@ body {
     Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   overflow-x: hidden;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: 0;
 }

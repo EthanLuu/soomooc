@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import { Rate, Tag } from 'antd'
-import { useCoursesContext } from 'context/course-context'
+import { useCoursesContext } from '@/context/course-context'
 import { useState } from 'react'
-import { CourseProps } from 'type/course'
-import { useSearchCourse } from 'utils'
+import { CourseProps } from '@/type/course'
+import { useSearchCourse } from '@/utils'
 
 export const CourseBanner = ({
   courseDetail,

@@ -1,6 +1,6 @@
 import { Row, Divider } from 'antd'
-import { CourseList } from 'screens/course-list/list'
-import { useCoursesContext } from 'context/course-context'
+import { CourseList } from '@/screens/course-list/list'
+import { useCoursesContext } from '@/context/course-context'
 export const MyCourseScreen = () => {
   const { courses } = useCoursesContext()
   return (

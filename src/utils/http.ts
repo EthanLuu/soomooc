@@ -5,7 +5,7 @@ interface Config extends RequestInit {
   data?: object
 }
 
-const apiUrl = process.env.REACT_APP_API_URL
+const apiUrl = process.env.PUBLIC_API_URL
 
 export const http = async (
   endpoint: string,

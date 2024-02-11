@@ -1,6 +1,6 @@
-import { User } from 'type/user'
+import { User } from '@/type/user'
 
-const apiUrl = process.env.REACT_APP_API_URL
+const apiUrl = process.env.PUBLIC_API_URL
 
 const localStorageKey = '__auth_provider_token__'
 

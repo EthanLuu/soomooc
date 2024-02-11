@@ -1,7 +1,7 @@
-import { BreadCrumb } from 'components/breadcrumb';
-import { FullPageLoading } from 'components/lib';
+import { BreadCrumb } from '@/components/breadcrumb';
+import { FullPageLoading } from '@/components/lib';
 import { RouteComponentProps } from 'react-router-dom';
-import { useCourseById } from 'utils/course';
+import { useCourseById } from '@/utils/course';
 import styled from '@emotion/styled';
 import { ChatRoom } from './chat-room';
 import { LivePlayer } from './live-player';

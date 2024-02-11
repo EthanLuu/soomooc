@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Spin, Typography, Row, Divider, Button, ButtonProps } from 'antd'
-import { ReactComponent as Logo } from 'assets/logo.svg'
+import { ReactComponent as Logo } from '@/assets/logo.svg'
 import Icon from '@ant-design/icons/lib/components/Icon'
 
 const FullPage = styled.div`

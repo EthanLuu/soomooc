@@ -1,6 +1,6 @@
 import { Carousel as AntCarousel } from 'antd';
 import { Link } from 'react-router-dom';
-import { CourseProps } from 'type/course';
+import { CourseProps } from '@/type/course';
 import styled from '@emotion/styled';
 
 export const Carousel: React.FC<{ courses: CourseProps[] }> = ({ courses }) => {

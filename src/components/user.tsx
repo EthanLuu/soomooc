@@ -1,6 +1,6 @@
 import { Button, Menu, Dropdown } from 'antd'
-import { useAuth } from 'context/auth-context'
-import { useJumpTo } from 'utils'
+import { useAuth } from '@/context/auth-context'
+import { useJumpTo } from '@/utils'
 
 export const User = () => {
   const { logout, user } = useAuth()

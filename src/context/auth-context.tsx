@@ -1,8 +1,8 @@
-import { FullPageLoading, FullPageErrorFallback } from 'components/lib'
+import { FullPageLoading, FullPageErrorFallback } from '@/components/lib'
 import React, { createContext, ReactNode } from 'react'
-import * as auth from 'auth-provider'
-import { User } from 'type/user'
-import { http } from 'utils/http'
+import * as auth from '@/auth-provider'
+import { User } from '@/type/user'
+import { http } from '@/utils/http'
 import { useRequest } from 'ahooks'
 
 interface AuthForm {

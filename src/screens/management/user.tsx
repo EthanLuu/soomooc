@@ -1,6 +1,6 @@
 import { Table } from 'antd';
-import { User } from 'type/user';
-import { useAllUsers, userTypeMap } from 'utils/user';
+import { User } from '@/type/user';
+import { useAllUsers, userTypeMap } from '@/utils/user';
 
 export const UserManagement = () => {
   const columns = [

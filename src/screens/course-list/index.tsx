@@ -1,6 +1,6 @@
 import { CourseList } from './list'
-import { useCourses } from 'utils/course'
-import { FullPageLoading, PageTitle } from 'components/lib'
+import { useCourses } from '@/utils/course'
+import { FullPageLoading, PageTitle } from '@/components/lib'
 
 export const CourseListScreen: React.FC = () => {
   const { loading, data: courses } = useCourses()

@@ -1,8 +1,8 @@
-import { FullPageLoading, PageTitle } from 'components/lib'
+import { FullPageLoading, PageTitle } from '@/components/lib'
 import qs from 'qs'
 import { useLocation } from 'react-router'
-import { SearchCourseParams } from 'utils'
-import { useCourses } from 'utils/course'
+import { SearchCourseParams } from '@/utils'
+import { useCourses } from '@/utils/course'
 import { CourseList } from './list'
 
 export const SeachCourseScreen = () => {

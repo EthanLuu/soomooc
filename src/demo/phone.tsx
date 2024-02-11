@@ -1,6 +1,6 @@
 import Icon from '@ant-design/icons/lib/components/Icon'
 import styled from '@emotion/styled'
-import { ReactComponent as Logo } from 'assets/phone.svg'
+import { ReactComponent as Logo } from '@/assets/phone.svg'
 
 const Container = styled.div`
   align-items: center;

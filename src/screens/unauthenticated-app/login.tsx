@@ -1,7 +1,7 @@
-import { useAuth } from 'context/auth-context'
+import { useAuth } from '@/context/auth-context'
 import { Button, Form, Input } from 'antd'
-import { useJumpTo } from 'utils'
-import useRequest from '@ahooksjs/use-request'
+import { useJumpTo } from '@/utils'
+import useRequest from 'ahooks'
 
 export const LoginScreen = ({
   onError,

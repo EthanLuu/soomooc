@@ -1,6 +1,6 @@
 import { Tabs } from 'antd'
-import { PageTitle } from 'components/lib'
-import { useAuth } from 'context/auth-context'
+import { PageTitle } from '@/components/lib'
+import { useAuth } from '@/context/auth-context'
 import { CourseManagement } from './course'
 import { LiveManagement } from './live'
 import { UserManagement } from './user'

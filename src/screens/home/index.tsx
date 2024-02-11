@@ -1,10 +1,10 @@
 import { Col, Row } from 'antd';
-import { FullPageLoading } from 'components/lib';
+import { FullPageLoading } from '@/components/lib';
 import { useEffect, useState } from 'react';
-import { Carousel } from 'screens/home/carousel';
-import { CourseProps } from 'type/course';
-import { MenuItemProp } from 'type/menu';
-import { useHttp } from 'utils/http';
+import { Carousel } from '@/screens/home/carousel';
+import { CourseProps } from '@/type/course';
+import { MenuItemProp } from '@/type/menu';
+import { useHttp } from '@/utils/http';
 import styled from '@emotion/styled';
 import { SideMenu } from './side-menu';
 
@@ -22,7 +22,7 @@ export const HomePage: React.FC = () => {
     }, [client]);
     return (
         <Container>
-            {courses.length === 0 || menuItems.length === 0 ? (
+            {courses.length === 0 && menuItems.length === 0 ? (
                 <FullPageLoading />
             ) : (
                 <Banner>

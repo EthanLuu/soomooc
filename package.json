@@ -2,42 +2,28 @@
   "name": "soomooc",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview",
+    "mock": "json-server --watch __json_server_mock__/db.json --port 3333"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
-    "@craco/craco": "^6.1.2",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/react-redux": "^7.1.16",
-    "@types/socket.io-client": "1.4.36",
-    "ahooks": "^2.10.4",
-    "antd": "^4.15.4",
-    "craco-less": "^1.17.1",
+    "ahooks": "^3.7.10",
+    "antd": "^5.14.0",
     "flv.js": "^1.5.0",
     "i18next": "^20.3.0",
     "qs": "^6.10.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-i18next": "^11.8.15",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
     "socket.io-client": "2.3",
-    "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject",
-    "mock": "json-server --watch __json_server_mock__/db.json --port 3001"
   },
   "eslintConfig": {
     "extends": [
@@ -60,9 +46,18 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
+    "@rsbuild/core": "^0.4.1",
+    "@rsbuild/plugin-react": "^0.4.1",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
     "@types/qs": "^6.9.6",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
+    "@types/socket.io-client": "1.4.36",
     "husky": "^6.0.0",
-    "json-server": "^0.16.3"
+    "json-server": "^0.16.3",
+    "typescript": "^5.3.0"
   }
 }

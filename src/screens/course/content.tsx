@@ -1,8 +1,8 @@
-import { CourseProps } from 'type/course'
+import { CourseProps } from '@/type/course'
 import { Link } from 'react-router-dom'
 import { Button, Card, Col, Descriptions, Row, Tabs } from 'antd'
-import { Teacher } from 'type/user'
-import { Phone } from 'demo/phone'
+import { Teacher } from '@/type/user'
+import { Phone } from '@/demo/phone'
 
 export const CourseContent = ({
   courseDetail,

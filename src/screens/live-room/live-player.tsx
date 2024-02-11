@@ -1,7 +1,7 @@
 import { Button, Result } from 'antd';
 import flvjs from 'flv.js';
 import { useEffect, useRef } from 'react';
-import { useJumpTo } from 'utils';
+import { useJumpTo } from '@/utils';
 
 interface LivePlayerProps {
     type?: string;

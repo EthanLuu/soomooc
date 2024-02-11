@@ -1,9 +1,9 @@
 import { Button, Form, Input, List, message as AntdMessage } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
-import { useAuth } from 'context/auth-context';
+import { useAuth } from '@/context/auth-context';
 import { useEffect, useState } from 'react';
 import io, { Socket } from 'socket.io-client';
-import { User } from 'type/user';
+import { User } from '@/type/user';
 import styled from '@emotion/styled';
 
 interface Message {

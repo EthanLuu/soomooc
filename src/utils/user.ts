@@ -1,8 +1,8 @@
 import { useHttp } from './http';
 import { useCourses } from './course'
-import { useAuth } from 'context/auth-context'
+import { useAuth } from '@/context/auth-context'
 import { useRequest } from 'ahooks';
-import { User } from 'type/user';
+import { User } from '@/type/user';
 
 export const userTypeMap: {[key: number]: string} = {
   0: "管理员",

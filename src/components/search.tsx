@@ -1,6 +1,6 @@
 import { Input } from 'antd'
 import { useState } from 'react'
-import { useSearchCourse } from 'utils'
+import { useSearchCourse } from '@/utils'
 
 export const Search = ({ placeholder }: { placeholder: string }) => {
   const [key, setKey] = useState('')

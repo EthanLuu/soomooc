@@ -1,9 +1,9 @@
 import './App.css'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
-import { Header } from 'components/header'
-import { Footer } from 'components/footer'
+import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
 import styled from '@emotion/styled'
-import { Routes } from 'routes'
+import { Routes } from '@/routes'
 import { BackTop } from 'antd'
 
 function App() {

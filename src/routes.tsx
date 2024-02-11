@@ -1,13 +1,13 @@
 import { Route, Switch } from 'react-router-dom'
-import { HomePage } from 'screens/home'
-import { NotFoundPage } from 'screens/404'
-import { CourseListScreen } from 'screens/course-list'
-import { CourseDetailScreen } from 'screens/course'
-import { UnauthenticatedApp } from 'screens/unauthenticated-app'
-import { LiveRoomScreen } from 'screens/live-room'
-import { MyCourseScreen } from 'screens/course-list/my-course'
-import { ManagementScreen } from 'screens/management'
-import { SeachCourseScreen } from 'screens/course-list/search'
+import { HomePage } from '@/screens/home'
+import { NotFoundPage } from '@/screens/404'
+import { CourseListScreen } from '@/screens/course-list'
+import { CourseDetailScreen } from '@/screens/course'
+import { UnauthenticatedApp } from '@/screens/unauthenticated-app'
+import { LiveRoomScreen } from '@/screens/live-room'
+import { MyCourseScreen } from '@/screens/course-list/my-course'
+import { ManagementScreen } from '@/screens/management'
+import { SeachCourseScreen } from '@/screens/course-list/search'
 
 export const Routes = () => {
   return (

@@ -3,7 +3,7 @@ import { Typography, notification } from 'antd'
 import { useLocation } from 'react-router'
 import { LoginScreen } from './login'
 import { RegisterScreen } from './register'
-import { LogoSvg } from 'components/lib'
+import { LogoSvg } from '@/components/lib'
 
 export const UnauthenticatedApp = () => {
   const url = useLocation()

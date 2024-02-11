@@ -8,14 +8,14 @@ import {
   Switch,
   message,
 } from 'antd'
-import { CourseProps, RoomStatus } from 'type/course'
+import { CourseProps, RoomStatus } from '@/type/course'
 
 import styled from '@emotion/styled'
-import { useCoursesContext } from 'context/course-context'
+import { useCoursesContext } from '@/context/course-context'
 import { useForm } from 'antd/lib/form/Form'
 import { useHistory } from 'react-router-dom'
-import { useHttp } from 'utils/http'
-import useRequest from '@ahooksjs/use-request'
+import { useHttp } from '@/utils/http'
+import useRequest from 'ahooks'
 import { useState } from 'react'
 
 export const LiveManagement = () => {

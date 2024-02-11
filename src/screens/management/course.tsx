@@ -1,9 +1,9 @@
 import { Button, Divider, Form, Input, message, Space, Table } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
-import { CourseProps } from 'type/course';
-import { useCourses } from 'utils/course';
-import { useHttp } from 'utils/http';
-import useRequest from '@ahooksjs/use-request';
+import { CourseProps } from '@/type/course';
+import { useCourses } from '@/utils/course';
+import { useHttp } from '@/utils/http';
+import useRequest from 'ahooks';
 import styled from '@emotion/styled';
 
 export const CourseManagement = () => {

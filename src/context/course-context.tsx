@@ -5,9 +5,9 @@ import {
   useEffect,
   useState,
 } from 'react'
-import { CourseProps } from 'type/course'
-import { useCourses } from 'utils/course'
-import { useHttp } from 'utils/http'
+import { CourseProps } from '@/type/course'
+import { useCourses } from '@/utils/course'
+import { useHttp } from '@/utils/http'
 import { useAuth } from './auth-context'
 
 // 定义全局状态用来控制课程订阅
