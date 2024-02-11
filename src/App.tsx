@@ -5,10 +5,12 @@ import { Footer } from '@/components/footer'
 import styled from '@emotion/styled'
 import { Routes } from '@/routes'
 import { FloatButton } from 'antd'
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {
   return (
     <div className="App">
+      <Analytics />
       <Router>
         <Header />
         <Main>

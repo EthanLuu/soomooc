@@ -25,3 +25,4 @@ yarn-error.log*
 .env
 /.husky
 /__json_sever_mock__
+dist
